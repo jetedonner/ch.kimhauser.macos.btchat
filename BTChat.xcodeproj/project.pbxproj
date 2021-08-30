@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D65AB826DD452100F6AF46 /* BTHelper.swift */; };
+		55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
 		691AE7721FE24EC6006CE4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691AE7711FE24EC6006CE4DB /* AppDelegate.swift */; };
 		691AE7741FE24EC6006CE4DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691AE7731FE24EC6006CE4DB /* ViewController.swift */; };
 		691AE7761FE24EC6006CE4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 691AE7751FE24EC6006CE4DB /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		55D65AB826DD452100F6AF46 /* BTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTHelper.swift; sourceTree = "<group>"; };
+		55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		691AE76E1FE24EC5006CE4DB /* BTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		691AE7711FE24EC6006CE4DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		691AE7731FE24EC6006CE4DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,17 +32,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55D65ABA26DD506500F6AF46 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		691AE7651FE24EC5006CE4DB = {
 			isa = PBXGroup;
 			children = (
 				691AE7701FE24EC5006CE4DB /* BTChat */,
 				691AE76F1FE24EC5006CE4DB /* Products */,
+				55D65ABA26DD506500F6AF46 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
