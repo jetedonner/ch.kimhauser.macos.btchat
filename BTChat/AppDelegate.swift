@@ -8,6 +8,10 @@
 
 import Cocoa
 
+extension NSImage.Name {
+    static let Image = NSImage.Name("Image")
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -16,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
-            button.image = #imageLiteral(resourceName: "Image")
+            button.image = NSImage(named:.Image)
             //将注释取消，会更换成popOver
             button.action = #selector(togglePopover(_:))
 //            constructMenu()
@@ -24,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         popover.contentViewController = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ViewController")) as! ViewController
     }
+    
     @objc func togglePopover(_ sender: Any?) {
         if popover.isShown {
             closePopover(sender)
