@@ -20,7 +20,11 @@ extension ViewController: CBCentralManagerDelegate{
             discoveredPeripheral.delegate = self
             if(discoveredPeripheral.identifier == self.dariaUUID){
                 self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
-                self.stopScan()
+//                self.stopScan()
+                self.centralManager.connect(discoveredPeripheral, options: nil)
+            }else{
+                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
+//                self.stopScan()
                 self.centralManager.connect(discoveredPeripheral, options: nil)
             }
         }
@@ -35,6 +39,9 @@ extension ViewController: CBCentralManagerDelegate{
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected peripheral: " + peripheral.name!)
+        if let error = error{
+            self.logMsg(msg: "ERROR: \(error)")
+        }
     }
     
     func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {

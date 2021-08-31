@@ -67,5 +67,15 @@ extension ViewController: CBPeripheralManagerDelegate{
 
         print("service: \(service)")
     }
+    
+    func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
+        var tmp = -1
+        tmp /= -1
+        if(requests.count == 1){
+            let str = String(decoding: requests[0].value!, as: UTF8.self)
+           
+            self.logMsg(msg: "New string: \(str)")
+        }
+    }
 }
 
