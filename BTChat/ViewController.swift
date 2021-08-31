@@ -9,7 +9,7 @@
 import Cocoa
 import CoreBluetooth
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet var txtLog:NSTextField!
     @IBOutlet var txtChat:NSTextView!
@@ -37,7 +37,8 @@ class ViewController: NSViewController {
         self.centralManager.delegate = self
 
         self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-
+        
+        self.txtMsg.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -50,7 +51,30 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
+    
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
+            // Do something against ENTER key
+            print("enter")
+            self.sendBTChatMsg(cmdSend)
+            return true
+        } else if (commandSelector == #selector(NSResponder.deleteForward(_:))) {
+            // Do something against DELETE key
+            return true
+        } else if (commandSelector == #selector(NSResponder.deleteBackward(_:))) {
+            // Do something against BACKSPACE key
+            return true
+        } else if (commandSelector == #selector(NSResponder.insertTab(_:))) {
+            // Do something against TAB key
+            return true
+        } else if (commandSelector == #selector(NSResponder.cancelOperation(_:))) {
+            // Do something against ESCAPE key
+            return true
+        }
+        
+        // return true if the action was handled; otherwise false
+        return false
+    }
 
 }
 

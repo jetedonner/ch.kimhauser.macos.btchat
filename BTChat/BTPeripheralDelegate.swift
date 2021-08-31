@@ -44,8 +44,10 @@ extension ViewController: CBPeripheralDelegate{
                 self.daPeripheral = peripheral
                 self.daChar = characteristic
                 self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
-                peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withoutResponse)
+                peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data ...")
+                
+//                self.logStatus(status: "Data sent!", stopProgressIndicator: true)
                 break
 //                self.peripheralManager.updateValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic as! CBMutableCharacteristic, onSubscribedCentrals: nil)
             }
@@ -53,6 +55,7 @@ extension ViewController: CBPeripheralDelegate{
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
+        self.logStatus(status: "Data sent!", stopProgressIndicator: true)
         if let error = error{
             self.logMsg(msg: "> ERROR: cannot writeValue(..) for \(characteristic): \(error)")
         }
@@ -71,6 +74,10 @@ extension ViewController: CBPeripheralDelegate{
 
             print("Message Not sent=======>\(String(describing: error))")
         }
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {

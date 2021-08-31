@@ -19,8 +19,14 @@ extension ViewController {
     
     
 
-    func logStatus(status:String){
+    func logStatus(status:String, stopProgressIndicator:Bool = false){
         lblStatus.stringValue = status
+        if(stopProgressIndicator){
+            self.spnScnanning.stopAnimation(nil)
+        }else{
+            self.spnScnanning.startAnimation(nil)
+        }
+        self.spnScnanning.isHidden = stopProgressIndicator
     }
     
     func logMsg(msg:String){
@@ -63,8 +69,9 @@ extension ViewController {
     }
     
     @IBAction func sendBTChatMsg(_ sender: Any){
-        self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withoutResponse)
+        self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withResponse)
         self.logStatus(status: "Sending data ...")
+        txtMsg.stringValue = ""
     }
 }
 

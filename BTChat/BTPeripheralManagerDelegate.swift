@@ -75,6 +75,7 @@ extension ViewController: CBPeripheralManagerDelegate{
             let str = String(decoding: requests[0].value!, as: UTF8.self)
            
             self.logMsg(msg: "New string: \(str)")
+            peripheral.respond(to: requests[0], withResult: .success)
         }
     }
 }
