@@ -28,7 +28,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     var daPeripheral:CBPeripheral?
     var daChar:CBCharacteristic?
     
-    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
+//    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
     
     override func viewDidLoad() {
         super.viewDidLoad()

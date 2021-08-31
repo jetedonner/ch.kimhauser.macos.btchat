@@ -25,7 +25,7 @@ extension ViewController: CBPeripheralDelegate{
         guard let services = peripheral.services else { return }
 
         for service in services {
-            self.logMsg(msg: "> Discovered a service: \(service) => Trying to get characteristics ...")
+//            self.logMsg(msg: "> Discovered a service: \(service) => Trying to get characteristics ...")
             peripheral.discoverCharacteristics([CBUUID(string: Constants.CHAR_UUID.rawValue)], for: service)
         }
     }
@@ -39,11 +39,11 @@ extension ViewController: CBPeripheralDelegate{
         guard let characteristics = service.characteristics else { return }
 
         for characteristic in characteristics {
-            self.logMsg(msg: "  > Discovered characteristics: \(characteristic) => AND NOW ??? ...")
-            if(characteristic.uuid.isEqual(CBUUID(string: "40689029-B356-463E-9F48-BAB068903123"))){
+//            self.logMsg(msg: "  > Discovered characteristics: \(characteristic) => AND NOW ??? ...")
+            if(characteristic.uuid.isEqual(CBUUID(string: Constants.CHAR_UUID.rawValue))){
                 self.daPeripheral = peripheral
                 self.daChar = characteristic
-                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
+//                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
                 peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data ...")
                 

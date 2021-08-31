@@ -18,21 +18,21 @@ extension ViewController: CBCentralManagerDelegate{
             print("peri: \(discoveredPeripheral)")
             self.allDiscPeripherals.append(discoveredPeripheral)
             discoveredPeripheral.delegate = self
-            if(discoveredPeripheral.identifier == self.dariaUUID){
-                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
+//            if(discoveredPeripheral.identifier == self.dariaUUID){
+////                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
+////                self.stopScan()
+//                self.centralManager.connect(discoveredPeripheral, options: nil)
+//            }else{
+//                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
 //                self.stopScan()
                 self.centralManager.connect(discoveredPeripheral, options: nil)
-            }else{
-                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
-//                self.stopScan()
-                self.centralManager.connect(discoveredPeripheral, options: nil)
-            }
+//            }
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connected peripheral: " + peripheral.name!)
-        self.logMsg(msg: "> Connected peripheral \(peripheral.identifier) => Discovering services ...")
+//        self.logMsg(msg: "> Connected peripheral \(peripheral.identifier) => Discovering services ...")
         peripheral.discoverServices([CBUUID(string: Constants.SERVICE_UUID.rawValue)])
 
     }
@@ -40,7 +40,7 @@ extension ViewController: CBCentralManagerDelegate{
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected peripheral: " + peripheral.name!)
         if let error = error{
-            self.logMsg(msg: "ERROR: \(error)")
+            print("ERROR: \(error)")
         }
     }
     

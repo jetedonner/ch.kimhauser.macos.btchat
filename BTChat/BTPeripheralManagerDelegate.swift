@@ -40,7 +40,7 @@ extension ViewController: CBPeripheralManagerDelegate{
     
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
         if let error = error {
-            print("Failed… error: \(error)")
+            print("Failed ... error: \(error)")
             return
         }
         let serviceUUID = CBUUID(string: Constants.SERVICE_UUID.rawValue)
