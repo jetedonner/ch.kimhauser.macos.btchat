@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "chatting.png",
+      "filename" : "chat_bw-18.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "chatting@2x.png",
+      "filename" : "chat_bw-32.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

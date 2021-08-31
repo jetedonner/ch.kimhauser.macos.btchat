@@ -742,9 +742,16 @@
                                                     <action selector="orderFrontStandardAboutPanel:" target="rPt-NT-nkU" id="OI2-Oh-eZG"/>
                                                 </connections>
                                             </menuItem>
+                                            <menuItem title="About BTChat" id="l5y-vH-lX3">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="orderFrontStandardAboutPanel:" target="rPt-NT-nkU" id="aWz-XI-s6a"/>
+                                                </connections>
+                                            </menuItem>
+                                            <menuItem isSeparatorItem="YES" id="9NB-Xd-TzW"/>
                                             <menuItem title="Scan nearby" id="XGI-b3-90k"/>
                                             <menuItem title="Preferences" id="9o0-Oa-pzM"/>
-                                            <menuItem isSeparatorItem="YES" id="9NB-Xd-TzW"/>
+                                            <menuItem isSeparatorItem="YES" id="AZv-f6-LMT"/>
                                             <menuItem title="Quit BTChat" id="tKK-Ve-nqQ">
                                                 <connections>
                                                     <action selector="close:" target="XfG-lQ-9wD" id="XLC-sn-sUP"/>
