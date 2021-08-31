@@ -21,9 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named:.Image)
-            //将注释取消，会更换成popOver
             button.action = #selector(togglePopover(_:))
-//            constructMenu()
+//            self.constructMenu()
         }
         
         popover.contentViewController = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ViewController")) as! ViewController
@@ -36,6 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             startPopover(sender)
         }
     }
+    
     func closePopover(_ sender: Any?) {
         popover.performClose(sender)
         if monitor != nil {
@@ -43,6 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             monitor = nil
         }
     }
+    
     func startPopover(_ sender: Any?) {
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
@@ -53,9 +54,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+    
     @objc func constructMenu() {
         let menu = NSMenu()
         
@@ -65,6 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         statusItem.menu = menu
     }
+    
     @objc func printQuote(_ sender: Any?) {
         let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
         let quoteAuthor = "Mark Twain"

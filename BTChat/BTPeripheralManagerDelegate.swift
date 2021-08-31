@@ -11,9 +11,7 @@ import Cocoa
 import CoreBluetooth
 
 extension ViewController: CBPeripheralManagerDelegate{
-    
-     
-    // Some txt for git
+
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
         if peripheral.state == .poweredOn {
             if peripheral.isAdvertising {
@@ -22,17 +20,21 @@ extension ViewController: CBPeripheralManagerDelegate{
 
             let uuid = CBUUID(string: Constants.SERVICE_UUID.rawValue)
             var advertisingData: [String : Any] = [
-                CBAdvertisementDataServiceUUIDsKey: [uuid],
-                CBAdvertisementDataIsConnectable: true
+                CBAdvertisementDataServiceUUIDsKey: [uuid]
             ]
-            
 
             if let name = self.name {
                 advertisingData[CBAdvertisementDataLocalNameKey] = name
             }
             self.peripheralManager?.startAdvertising(advertisingData)
-        } else {
-//            #warning("handle other states")
+        }else if peripheral.state == .poweredOff {
+            self.logStatus(status: "BLE powered OFF!", stopProgressIndicator: true)
+        }else if peripheral.state == .unauthorized {
+            self.logStatus(status: "BLE unauthorized!", stopProgressIndicator: true)
+        }else if peripheral.state == .unknown {
+            self.logStatus(status: "BLE unknown!", stopProgressIndicator: true)
+        }else if peripheral.state == .unsupported {
+            self.logStatus(status: "BLE unsupported!", stopProgressIndicator: true)
         }
     }
     
@@ -41,7 +43,6 @@ extension ViewController: CBPeripheralManagerDelegate{
             print("Failed… error: \(error)")
             return
         }
-        print("Succeeded!")
         let serviceUUID = CBUUID(string: Constants.SERVICE_UUID.rawValue)
         let service = CBMutableService(type: serviceUUID, primary: true)
         

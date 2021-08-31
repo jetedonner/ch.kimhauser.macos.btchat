@@ -55,23 +55,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
             // Do something against ENTER key
-            print("enter")
             self.sendBTChatMsg(cmdSend)
             return true
-        } else if (commandSelector == #selector(NSResponder.deleteForward(_:))) {
-            // Do something against DELETE key
-            return true
-        } else if (commandSelector == #selector(NSResponder.deleteBackward(_:))) {
-            // Do something against BACKSPACE key
-            return true
-        } else if (commandSelector == #selector(NSResponder.insertTab(_:))) {
-            // Do something against TAB key
-            return true
-        } else if (commandSelector == #selector(NSResponder.cancelOperation(_:))) {
-            // Do something against ESCAPE key
-            return true
         }
-        
         // return true if the action was handled; otherwise false
         return false
     }
