@@ -689,26 +689,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="567" height="317"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cd6-V6-LL1">
-                                <rect key="frame" x="20" y="82" width="527" height="185"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="wJc-3V-5VE">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3Y-68-ZMp">
-                                <rect key="frame" x="20" y="39" width="468" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter your message ..." drawsBackground="YES" id="tRo-kQ-gq8">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCl-2p-6S9">
-                                <rect key="frame" x="46" y="273" width="481" height="25"/>
+                                <rect key="frame" x="17" y="273" width="454" height="25"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="kFA-Lz-CcL" id="Abb-fj-hb2">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -729,29 +711,32 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="sendBTChatMsg:" target="XfG-lQ-9wD" id="gJO-b7-hte"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rq-Zr-Acq">
-                                <rect key="frame" x="19" y="5" width="533" height="21"/>
+                                <rect key="frame" x="42" y="10" width="509" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="BTChat ready ..." id="VfM-lg-MGe">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="10"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <progressIndicator fixedFrame="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="dKq-Eg-DDs">
-                                <rect key="frame" x="531" y="281" width="16" height="16"/>
+                                <rect key="frame" x="20" y="15" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
                             <popUpButton fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vlF-v3-BbC">
-                                <rect key="frame" x="15" y="276" width="20" height="25"/>
+                                <rect key="frame" x="529" y="274" width="20" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <popUpButtonCell key="cell" type="disclosureTriangle" title="About BTChat" bezelStyle="disclosure" image="popUpButtonCell:vVQ-Jf-3wz:image" imagePosition="only" alignment="left" lineBreakMode="truncatingTail" imageScaling="proportionallyDown" inset="2" pullsDown="YES" altersStateOfSelectedItem="NO" id="vVQ-Jf-3wz">
                                     <behavior key="behavior" pushIn="YES" changeBackground="YES" changeGray="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="FUf-os-9eS">
                                         <items>
-                                            <menuItem title="About BTChat" id="dAo-mk-oaE">
+                                            <menuItem title="About BTChat" hidden="YES" id="dAo-mk-oaE">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                 <connections>
                                                     <action selector="orderFrontStandardAboutPanel:" target="rPt-NT-nkU" id="OI2-Oh-eZG"/>
@@ -769,11 +754,61 @@
                                     </menu>
                                 </popUpButtonCell>
                             </popUpButton>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y3Y-68-ZMp">
+                                <rect key="frame" x="20" y="39" width="468" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter your message ..." drawsBackground="YES" id="tRo-kQ-gq8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeI-iC-NBx">
+                                <rect key="frame" x="20" y="68" width="527" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <clipView key="contentView" drawsBackground="NO" id="4bW-Tt-Dv8">
+                                    <rect key="frame" x="0.0" y="0.0" width="527" height="200"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="whB-TK-LER">
+                                            <rect key="frame" x="0.0" y="0.0" width="527" height="200"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="527" height="200"/>
+                                            <size key="maxSize" width="527" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="xFd-x0-i7y">
+                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="IhW-SZ-bgY">
+                                    <rect key="frame" x="511" y="0.0" width="16" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Deo-Ir-hyf">
+                                <rect key="frame" x="468" y="270" width="65" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Scan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7Q2-4u-jRC">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doScanForBTChatNearby:" target="XfG-lQ-9wD" id="AH4-Mh-rJl"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="cmbNearby" destination="rCl-2p-6S9" id="vFo-CW-nCy"/>
                         <outlet property="cmdSend" destination="MSz-td-hbv" id="jJ9-oQ-fqQ"/>
-                        <outlet property="txtChat" destination="Cd6-V6-LL1" id="d7k-fJ-aDN"/>
+                        <outlet property="lblStatus" destination="4rq-Zr-Acq" id="zyO-mH-bhA"/>
+                        <outlet property="spnScnanning" destination="dKq-Eg-DDs" id="p4T-4S-Ywz"/>
+                        <outlet property="txtChat" destination="whB-TK-LER" id="geX-k0-sRh"/>
                         <outlet property="txtMsg" destination="y3Y-68-ZMp" id="Tmv-8k-cyd"/>
                     </connections>
                 </viewController>

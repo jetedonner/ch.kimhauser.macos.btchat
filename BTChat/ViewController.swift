@@ -12,9 +12,12 @@ import CoreBluetooth
 class ViewController: NSViewController {
 
     @IBOutlet var txtLog:NSTextField!
-    @IBOutlet var txtChat:NSTextField!
+    @IBOutlet var txtChat:NSTextView!
     @IBOutlet var txtMsg:NSTextField!
+    @IBOutlet var lblStatus:NSTextField!
     @IBOutlet var cmdSend:NSButton!
+    @IBOutlet var spnScnanning:NSProgressIndicator!
+    @IBOutlet var cmbNearby:NSPopUpButton!
     
     @IBOutlet weak var window: NSWindow!
     public var centralManager: CBCentralManager!
@@ -22,6 +25,10 @@ class ViewController: NSViewController {
     public var name: String?
     
     public var allDiscPeripherals:[CBPeripheral] = []
+    var daPeripheral:CBPeripheral?
+    var daChar:CBCharacteristic?
+    
+    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
