@@ -13,6 +13,7 @@ import Preferences
 extension Preferences.PaneIdentifier {
     static let general = Self("general")
     static let advanced = Self("advanced")
+    static let communication = Self("communication")
 }
 
 final class GeneralPreferenceViewController: NSViewController, PreferencePane {
@@ -40,9 +41,24 @@ final class GeneralPreferenceViewController: NSViewController, PreferencePane {
 final class AdvancedPreferenceViewController: NSViewController, PreferencePane {
     let preferencePaneIdentifier = Preferences.PaneIdentifier.advanced
     let preferencePaneTitle = "Advanced"
-    let toolbarItemIcon = NSImage(systemSymbolName: "gear", accessibilityDescription: "Advanced preferences")!
+    let toolbarItemIcon = NSImage(systemSymbolName: "antenna.radiowaves.left.and.right", accessibilityDescription: "Advanced preferences")!
 
     override var nibName: NSNib.Name? { NSNib.Name(rawValue: "AdvancedPreferenceViewController") }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Setup stuff here
+    }
+}
+
+
+final class CommunicationPreferenceViewController: NSViewController, PreferencePane {
+    let preferencePaneIdentifier = Preferences.PaneIdentifier.communication
+    let preferencePaneTitle = "Communication"
+    let toolbarItemIcon = NSImage(systemSymbolName: "text.bubble.fill", accessibilityDescription: "Communication preferences")!
+
+    override var nibName: NSNib.Name? { NSNib.Name(rawValue: "CommunicationPreferenceViewController") }
 
     override func viewDidLoad() {
         super.viewDidLoad()

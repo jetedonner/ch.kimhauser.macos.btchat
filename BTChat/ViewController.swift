@@ -9,6 +9,8 @@
 import Cocoa
 import CoreBluetooth
 import Preferences
+import LaunchAtLogin
+import SQLite3
 
 class ViewController: NSViewController, NSTextFieldDelegate {
 
@@ -34,11 +36,13 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     var sendDataIndex:Int = 0
     var CountValue:Int = 0
     var completionFlag:Bool = false
-    var dataToSend:NSData = NSData(data: "MULTI LINBE EXAMPLE".data(using: .utf8)!)
+    var dataToSend:Data = "MULTI LINBE EXAMPLE".data(using: .utf8)!
     var dataReceived:Data = Data("".data(using: .utf8)!)
     
     let EOM_MSG = "###==BTChat-EOM==###"
 //    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
+    
+    var sqlLiteHelper:SQLiteHelper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,16 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
         
         self.txtMsg.delegate = self
+        
+        
+        print(LaunchAtLogin.isEnabled)
+        //=> false
+
+        LaunchAtLogin.isEnabled = false
+
+        print(LaunchAtLogin.isEnabled)
+        
+        self.sqlLiteHelper = SQLiteHelper()
         // Do any additional setup after loading the view.
     }
     
@@ -65,7 +79,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     private lazy var preferencesWindowController = PreferencesWindowController(
         preferencePanes: [
             GeneralPreferenceViewController(),
-            AdvancedPreferenceViewController()
+            AdvancedPreferenceViewController(),
+            CommunicationPreferenceViewController()
         ],
         style: .toolbarItems
     )
@@ -75,18 +90,23 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction
     func preferencesMenuItemActionHandler(_ sender: NSMenuItem) {
         preferencesWindowController.show()
+        let appDelegate = NSApp.delegate as! AppDelegate
+        appDelegate.closePopover(nil)
     }
     
-    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
-//            var str = txtMsg.stringValue
-            self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
-            self.sendingBytes()
-            txtMsg.stringValue = ""
-            return true
+    func trySendMsg(){
+        if(txtMsg.stringValue == "") { return }
+        
+        self.dataToSend = txtMsg.stringValue.data(using: .utf8)!
+        
+        do{
+            self.dataToSend = try CryptoHelper.aesEncrypt(inputData: self.dataToSend)
+        }catch {
+            print("ERROR: Encryption failed!")
         }
-        // return true if the action was handled; otherwise false
-        return false
+        
+        self.sendingBytes()
+        txtMsg.stringValue = ""
     }
     
     @IBAction func doScanForBTChatNearby(_ sender: Any){
@@ -94,16 +114,17 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     
     @IBAction func sendBTChatMsg(_ sender: Any){
-//        let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
-//        print("Maximum writeValue len: \(maxLen)")
-//        self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withResponse)
-//        self.logStatus(status: "Sending data ...")
-//        txtMsg.stringValue = ""
-        self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
-        self.sendingBytes()
-        txtMsg.stringValue = ""
+        self.trySendMsg()
     }
     
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
+            self.trySendMsg()
+            return true
+        }
+        // return true if the action was handled; otherwise false
+        return false
+    }
     
     @IBAction func showAbout(_ sender:Any?){
         NSApp.activate(ignoringOtherApps: true)

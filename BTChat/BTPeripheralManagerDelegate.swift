@@ -84,6 +84,12 @@ extension ViewController: CBPeripheralManagerDelegate{
             let str:String = String(decoding: requests[0].value!, as: UTF8.self)
             if(requests[0].characteristic.uuid == self.daCharLong?.uuid){
                 if(str == EOM_MSG){
+                    
+                    do{
+                        self.dataReceived = try CryptoHelper.aesDecrypt(encryptedData: self.dataReceived)
+                    }catch {
+                        print("ERROR: Decryption failed!")
+                    }
                     let str:String = String(decoding: self.dataReceived, as: UTF8.self)
                     self.printNewMsg2Chat(msg: str)
                     self.dataReceived.removeAll()

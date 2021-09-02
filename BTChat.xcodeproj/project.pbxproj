@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5571C13726E0ED5A008FBE0E /* SQLiteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5571C13626E0ED5A008FBE0E /* SQLiteHelper.swift */; };
+		5571C13A26E0F2D8008FBE0E /* antenna.radiowaves.left.and.right.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5571C13926E0F2D8008FBE0E /* antenna.radiowaves.left.and.right.svg */; };
+		5571C13C26E0F3E0008FBE0E /* text.bubble.fill.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5571C13B26E0F3E0008FBE0E /* text.bubble.fill.svg */; };
+		5571C13F26E0F441008FBE0E /* CommunicationPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5571C13E26E0F441008FBE0E /* CommunicationPreferenceViewController.xib */; };
 		557D32ED26DD6440001BBE8B /* TESET.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 557D32EC26DD6440001BBE8B /* TESET.storyboard */; };
 		557D32EF26DE2025001BBE8B /* BTCentralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D32EE26DE2025001BBE8B /* BTCentralManagerDelegate.swift */; };
 		557D32F126DE2098001BBE8B /* BTPeripheralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D32F026DE2098001BBE8B /* BTPeripheralDelegate.swift */; };
@@ -18,18 +22,42 @@
 		557D332E26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */; };
 		557D333026E0B18F001BBE8B /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */; };
 		557D333226E0B207001BBE8B /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */; };
+		5593B57026E10FF9007768FD /* BTChatDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B56F26E10FF9007768FD /* BTChatDefaults.swift */; };
+		5593B57526E11224007768FD /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B57426E11224007768FD /* CryptoHelper.swift */; };
+		5593B57C26E117CF007768FD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
+		5593B57F26E117D3007768FD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B57A26E11487007768FD /* CryptoSwift.framework */; };
+		5593B58026E117D3007768FD /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B57A26E11487007768FD /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55B4F8CA26E0B89E004F6C77 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C826E0B89E004F6C77 /* settings.png */; };
 		55B4F8CB26E0B89E004F6C77 /* gear.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C926E0B89E004F6C77 /* gear.svg */; };
 		55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8CC26E0BD66004F6C77 /* antenna.svg */; };
+		55B4F8D126E0E331004F6C77 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 55B4F8D026E0E331004F6C77 /* Defaults */; };
+		55B4F8D426E0E35A004F6C77 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 55B4F8D326E0E35A004F6C77 /* LaunchAtLogin */; };
 		55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D65AB826DD452100F6AF46 /* BTHelper.swift */; };
-		55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
 		691AE7721FE24EC6006CE4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691AE7711FE24EC6006CE4DB /* AppDelegate.swift */; };
 		691AE7741FE24EC6006CE4DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691AE7731FE24EC6006CE4DB /* ViewController.swift */; };
 		691AE7761FE24EC6006CE4DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 691AE7751FE24EC6006CE4DB /* Assets.xcassets */; };
 		691AE7791FE24EC6006CE4DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 691AE7771FE24EC6006CE4DB /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5593B58126E117D3007768FD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5593B58026E117D3007768FD /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5571C13626E0ED5A008FBE0E /* SQLiteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteHelper.swift; sourceTree = "<group>"; };
+		5571C13926E0F2D8008FBE0E /* antenna.radiowaves.left.and.right.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = antenna.radiowaves.left.and.right.svg; sourceTree = "<group>"; };
+		5571C13B26E0F3E0008FBE0E /* text.bubble.fill.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = text.bubble.fill.svg; sourceTree = "<group>"; };
+		5571C13E26E0F441008FBE0E /* CommunicationPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunicationPreferenceViewController.xib; sourceTree = "<group>"; };
 		557D32EC26DD6440001BBE8B /* TESET.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TESET.storyboard; sourceTree = "<group>"; };
 		557D32EE26DE2025001BBE8B /* BTCentralManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCentralManagerDelegate.swift; sourceTree = "<group>"; };
 		557D32F026DE2098001BBE8B /* BTPeripheralDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPeripheralDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +68,9 @@
 		557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewControllerOLD.xib; sourceTree = "<group>"; };
 		557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedPreferenceViewController.xib; sourceTree = "<group>"; };
 		557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		5593B56F26E10FF9007768FD /* BTChatDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTChatDefaults.swift; sourceTree = "<group>"; };
+		5593B57426E11224007768FD /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
+		5593B57A26E11487007768FD /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		55B4F8C826E0B89E004F6C77 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		55B4F8C926E0B89E004F6C77 /* gear.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gear.svg; sourceTree = "<group>"; };
 		55B4F8CC26E0BD66004F6C77 /* antenna.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = antenna.svg; sourceTree = "<group>"; };
@@ -59,7 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */,
+				55B4F8D126E0E331004F6C77 /* Defaults in Frameworks */,
+				55B4F8D426E0E35A004F6C77 /* LaunchAtLogin in Frameworks */,
+				5593B57C26E117CF007768FD /* CoreBluetooth.framework in Frameworks */,
+				5593B57F26E117D3007768FD /* CryptoSwift.framework in Frameworks */,
 				557D332A26E0AF2B001BBE8B /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,9 +101,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5571C13526E0ED4C008FBE0E /* SQLite */ = {
+			isa = PBXGroup;
+			children = (
+				5571C13626E0ED5A008FBE0E /* SQLiteHelper.swift */,
+			);
+			path = SQLite;
+			sourceTree = "<group>";
+		};
+		5571C13D26E0F3E5008FBE0E /* img */ = {
+			isa = PBXGroup;
+			children = (
+				5571C13B26E0F3E0008FBE0E /* text.bubble.fill.svg */,
+				5571C13926E0F2D8008FBE0E /* antenna.radiowaves.left.and.right.svg */,
+				55B4F8C926E0B89E004F6C77 /* gear.svg */,
+				55B4F8C826E0B89E004F6C77 /* settings.png */,
+				55B4F8CC26E0BD66004F6C77 /* antenna.svg */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		5593B57326E11217007768FD /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				5593B57426E11224007768FD /* CryptoHelper.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		55B4F8CE26E0E276004F6C77 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				5571C13D26E0F3E5008FBE0E /* img */,
+				557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */,
+				5571C13E26E0F441008FBE0E /* CommunicationPreferenceViewController.xib */,
+				557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */,
+				557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */,
+				557D332B26E0AF55001BBE8B /* PreferencesHelper.swift */,
+				5593B56F26E10FF9007768FD /* BTChatDefaults.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		55D65ABA26DD506500F6AF46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5593B57A26E11487007768FD /* CryptoSwift.framework */,
 				55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
@@ -97,16 +174,13 @@
 		691AE7701FE24EC5006CE4DB /* BTChat */ = {
 			isa = PBXGroup;
 			children = (
-				55B4F8CC26E0BD66004F6C77 /* antenna.svg */,
-				55B4F8C926E0B89E004F6C77 /* gear.svg */,
-				55B4F8C826E0B89E004F6C77 /* settings.png */,
-				557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */,
+				5593B57326E11217007768FD /* Crypto */,
+				5571C13526E0ED4C008FBE0E /* SQLite */,
+				55B4F8CE26E0E276004F6C77 /* Preferences */,
 				691AE7711FE24EC6006CE4DB /* AppDelegate.swift */,
 				691AE7751FE24EC6006CE4DB /* Assets.xcassets */,
 				691AE7731FE24EC6006CE4DB /* ViewController.swift */,
 				691AE7771FE24EC6006CE4DB /* Main.storyboard */,
-				557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */,
-				557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */,
 				691AE77A1FE24EC6006CE4DB /* Info.plist */,
 				691AE77B1FE24EC6006CE4DB /* BTChat.entitlements */,
 				55D65AB826DD452100F6AF46 /* BTHelper.swift */,
@@ -114,7 +188,6 @@
 				557D32F026DE2098001BBE8B /* BTPeripheralDelegate.swift */,
 				557D32EE26DE2025001BBE8B /* BTCentralManagerDelegate.swift */,
 				557D32EC26DD6440001BBE8B /* TESET.storyboard */,
-				557D332B26E0AF55001BBE8B /* PreferencesHelper.swift */,
 			);
 			path = BTChat;
 			sourceTree = "<group>";
@@ -129,6 +202,8 @@
 				691AE76A1FE24EC5006CE4DB /* Sources */,
 				691AE76B1FE24EC5006CE4DB /* Frameworks */,
 				691AE76C1FE24EC5006CE4DB /* Resources */,
+				55B4F8D526E0E43F004F6C77 /* ShellScript */,
+				5593B58126E117D3007768FD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -137,6 +212,8 @@
 			name = BTChat;
 			packageProductDependencies = (
 				557D332926E0AF2B001BBE8B /* Preferences */,
+				55B4F8D026E0E331004F6C77 /* Defaults */,
+				55B4F8D326E0E35A004F6C77 /* LaunchAtLogin */,
 			);
 			productName = StatusBar;
 			productReference = 691AE76E1FE24EC5006CE4DB /* BTChat.app */;
@@ -169,6 +246,8 @@
 			mainGroup = 691AE7651FE24EC5006CE4DB;
 			packageReferences = (
 				557D332826E0AF2B001BBE8B /* XCRemoteSwiftPackageReference "Preferences" */,
+				55B4F8CF26E0E331004F6C77 /* XCRemoteSwiftPackageReference "Defaults" */,
+				55B4F8D226E0E35A004F6C77 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 691AE76F1FE24EC5006CE4DB /* Products */;
 			projectDirPath = "";
@@ -184,12 +263,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */,
 				557D32ED26DD6440001BBE8B /* TESET.storyboard in Resources */,
+				5571C13F26E0F441008FBE0E /* CommunicationPreferenceViewController.xib in Resources */,
 				691AE7761FE24EC6006CE4DB /* Assets.xcassets in Resources */,
 				557D333026E0B18F001BBE8B /* AdvancedPreferenceViewController.xib in Resources */,
-				55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */,
 				557D332726DE951A001BBE8B /* README.md in Resources */,
+				5571C13A26E0F2D8008FBE0E /* antenna.radiowaves.left.and.right.svg in Resources */,
 				557D332626DE951A001BBE8B /* LICENSE in Resources */,
+				5571C13C26E0F3E0008FBE0E /* text.bubble.fill.svg in Resources */,
 				557D332E26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib in Resources */,
 				55B4F8CA26E0B89E004F6C77 /* settings.png in Resources */,
 				55B4F8CB26E0B89E004F6C77 /* gear.svg in Resources */,
@@ -200,18 +282,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		55B4F8D526E0E43F004F6C77 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		691AE76A1FE24EC5006CE4DB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */,
+				5593B57026E10FF9007768FD /* BTChatDefaults.swift in Sources */,
 				691AE7741FE24EC6006CE4DB /* ViewController.swift in Sources */,
 				557D32EF26DE2025001BBE8B /* BTCentralManagerDelegate.swift in Sources */,
+				5593B57526E11224007768FD /* CryptoHelper.swift in Sources */,
 				557D332C26E0AF55001BBE8B /* PreferencesHelper.swift in Sources */,
 				557D32F126DE2098001BBE8B /* BTPeripheralDelegate.swift in Sources */,
 				557D32F326DE210F001BBE8B /* BTPeripheralManagerDelegate.swift in Sources */,
 				691AE7721FE24EC6006CE4DB /* AppDelegate.swift in Sources */,
+				5571C13726E0ED5A008FBE0E /* SQLiteHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +449,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BTChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,6 +463,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.btchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				VALIDATE_PRODUCT = NO;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -365,6 +476,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = BTChat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,6 +490,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.btchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				VALIDATE_PRODUCT = NO;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -410,6 +527,22 @@
 				minimumVersion = 2.4.0;
 			};
 		};
+		55B4F8CF26E0E331004F6C77 /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		55B4F8D226E0E35A004F6C77 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -417,6 +550,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 557D332826E0AF2B001BBE8B /* XCRemoteSwiftPackageReference "Preferences" */;
 			productName = Preferences;
+		};
+		55B4F8D026E0E331004F6C77 /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B4F8CF26E0E331004F6C77 /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+		55B4F8D326E0E35A004F6C77 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 55B4F8D226E0E35A004F6C77 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

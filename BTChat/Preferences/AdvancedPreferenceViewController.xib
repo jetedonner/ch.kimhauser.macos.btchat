@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AdvancedPreferenceViewController" customModule="BTChat" customModuleProvider="target">
+            <connections>
+                <outlet property="fontLabel" destination="8LP-g5-bnE" id="js7-9U-Oo3"/>
+                <outlet property="view" destination="c22-O7-iKe" id="buC-Sz-vlD"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView translatesAutoresizingMaskIntoConstraints="NO" id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="510" height="413"/>
+            <subviews>
+                <gridView xPlacement="center" yPlacement="center" rowAlignment="none" rowSpacing="8" columnSpacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UrC-xJ-uLm">
+                    <rect key="frame" x="30" y="20" width="450" height="373"/>
+                    <constraints>
+                        <constraint firstItem="KsN-qr-GRh" firstAttribute="leading" secondItem="UrC-xJ-uLm" secondAttribute="leading" id="utm-J4-Yzj"/>
+                        <constraint firstAttribute="width" constant="450" id="vG6-yf-hye"/>
+                    </constraints>
+                    <rows>
+                        <gridRow id="ltX-Ja-eM6"/>
+                        <gridRow yPlacement="top" id="OOd-hD-rve"/>
+                        <gridRow height="18" id="yQf-BD-iw9"/>
+                        <gridRow height="22" id="xyW-Mx-fAr"/>
+                        <gridRow height="61" id="3VU-sG-Xog"/>
+                        <gridRow height="30" id="K4s-DB-Sg7"/>
+                        <gridRow yPlacement="center" height="20" id="If4-3e-uiP"/>
+                        <gridRow bottomPadding="10" id="R2Q-rY-cRM"/>
+                        <gridRow id="IHy-gl-Vqw"/>
+                    </rows>
+                    <columns>
+                        <gridColumn xPlacement="trailing" width="131" id="RqK-yY-jzI"/>
+                        <gridColumn xPlacement="fill" id="d5q-Pb-pgU"/>
+                    </columns>
+                    <gridCells>
+                        <gridCell row="ltX-Ja-eM6" column="RqK-yY-jzI" id="042-ss-ffF">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PfT-L0-R1r">
+                                <rect key="frame" x="58" y="357" width="75" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Save to DB:" id="bnu-AS-zpg">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="ltX-Ja-eM6" column="d5q-Pb-pgU" id="W2c-el-Egx">
+                            <button key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="geb-5D-qIj">
+                                <rect key="frame" x="139" y="356" width="311" height="18"/>
+                                <buttonCell key="cell" type="check" title="Save all chats and messages in a SQLite DB" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="N9I-Iw-IfM">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </gridCell>
+                        <gridCell row="OOd-hD-rve" column="RqK-yY-jzI" id="ibh-ig-esN">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qW7-3h-Wak">
+                                <rect key="frame" x="70" y="333" width="63" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="DB name:" id="WNN-pZ-v1a">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="OOd-hD-rve" column="d5q-Pb-pgU" id="1P6-Pp-b5f">
+                            <textField key="contentView" verticalHuggingPriority="750" ambiguous="YES" id="Qgy-9V-uW8">
+                                <rect key="frame" x="141" y="328" width="309" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="BTChatDB.db" placeholderString="DB name" drawsBackground="YES" id="8EZ-Wz-1L5">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="yQf-BD-iw9" column="RqK-yY-jzI" headOfMergedCell="xzM-KQ-zwE" xPlacement="fill" id="xzM-KQ-zwE">
+                            <box key="contentView" verticalHuggingPriority="750" ambiguous="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="xXz-Ot-CWK">
+                                <rect key="frame" x="0.0" y="309" width="450" height="5"/>
+                            </box>
+                        </gridCell>
+                        <gridCell row="yQf-BD-iw9" column="d5q-Pb-pgU" headOfMergedCell="xzM-KQ-zwE" id="3ij-Lf-Tjc"/>
+                        <gridCell row="xyW-Mx-fAr" column="RqK-yY-jzI" id="q2Z-F7-WRO">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DY5-oK-Lrm">
+                                <rect key="frame" x="57" y="275" width="76" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Encrypt DB:" id="Wtz-du-E7B">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="xyW-Mx-fAr" column="d5q-Pb-pgU" id="JnQ-dd-5mf">
+                            <button key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6je-Nj-ihw">
+                                <rect key="frame" x="139" y="274" width="311" height="18"/>
+                                <buttonCell key="cell" type="check" title="Encrypt the DB content" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="UjZ-pm-66y">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </gridCell>
+                        <gridCell row="3VU-sG-Xog" column="RqK-yY-jzI" id="a3q-v8-hD6"/>
+                        <gridCell row="3VU-sG-Xog" column="d5q-Pb-pgU" id="Obq-2T-fna">
+                            <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02e-HZ-1TJ">
+                                <rect key="frame" x="139" y="206" width="313" height="56"/>
+                                <textFieldCell key="cell" selectable="YES" id="wd5-cW-Pw4">
+                                    <font key="font" metaFont="message" size="11"/>
+                                    <string key="title">For securing your chats and messages you can enable the encryption feature for the Database. Please note, that only the content will be encrypted, the DB itself and its structure will remain unencrypted.</string>
+                                    <color key="textColor" name="systemGrayColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="K4s-DB-Sg7" column="RqK-yY-jzI" id="t7c-NX-u3p">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d3J-gA-Acw">
+                                <rect key="frame" x="62" y="172" width="71" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Algorythm:" id="RX8-Qw-Wya">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="K4s-DB-Sg7" column="d5q-Pb-pgU" id="vxm-xK-I3q">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0C0-0K-MhQ">
+                                <rect key="frame" x="138" y="166" width="316" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="SEE" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="dZj-Ju-gfS" id="4KO-RP-oAU">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Xxf-1p-BaD">
+                                        <items>
+                                            <menuItem title="SEE" state="on" id="dZj-Ju-gfS" userLabel="SEE"/>
+                                            <menuItem title="wxSQLite" id="Qgs-LJ-oCz" userLabel="wxSQLite"/>
+                                            <menuItem title="SQLCipher" id="WgY-Ku-cQP" userLabel="SQLCipher"/>
+                                            <menuItem title="SQLiteCrypt" id="4ng-KG-fNv" userLabel="SQLiteCrypt"/>
+                                            <menuItem title="botansqlite3" id="EeC-iQ-uJf" userLabel="botansqlite3"/>
+                                            <menuItem title="sqleet" id="LEe-5J-3Ad" userLabel="sqleet"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="If4-3e-uiP" column="RqK-yY-jzI" headOfMergedCell="iwB-6h-jgI" id="iwB-6h-jgI">
+                            <box key="contentView" verticalHuggingPriority="750" ambiguous="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="KsN-qr-GRh">
+                                <rect key="frame" x="0.0" y="145" width="450" height="5"/>
+                            </box>
+                        </gridCell>
+                        <gridCell row="If4-3e-uiP" column="d5q-Pb-pgU" headOfMergedCell="iwB-6h-jgI" id="UcV-H8-fjJ"/>
+                        <gridCell row="R2Q-rY-cRM" column="RqK-yY-jzI" id="h2k-EF-30A">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pwh-HF-wf6">
+                                <rect key="frame" x="62" y="106" width="71" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Chat color:" id="UWB-wJ-kV4">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="R2Q-rY-cRM" column="d5q-Pb-pgU" xPlacement="leading" id="Xm6-Te-Jzh">
+                            <colorWell key="contentView" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2HU-om-C7T">
+                                <rect key="frame" x="141" y="99" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="SSi-8a-8qj"/>
+                                    <constraint firstAttribute="width" constant="75" id="US5-Mf-wy6"/>
+                                </constraints>
+                                <color key="color" red="0.05813049898" green="0.055541899059999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </colorWell>
+                        </gridCell>
+                        <gridCell row="IHy-gl-Vqw" column="RqK-yY-jzI" id="p3c-Ej-XuJ">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DFm-5v-ZoC">
+                                <rect key="frame" x="68" y="33" width="65" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Chat font:" id="a8Q-Mw-3Xn">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="IHy-gl-Vqw" column="d5q-Pb-pgU" id="y99-sH-fhR">
+                            <stackView key="contentView" orientation="horizontal" alignment="centerY" spacing="16" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="irX-8V-EUR">
+                                <rect key="frame" x="141" y="26" width="309" height="30"/>
+                                <beginningViews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8LP-g5-bnE">
+                                        <rect key="frame" x="-2" y="7" width="90" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="SF Mono, 14.0" id="UeQ-YK-DOh">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </beginningViews>
+                                <endViews>
+                                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZz-lW-sdX">
+                                        <rect key="frame" x="224" y="-2" width="92" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Change..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9nr-gt-gdZ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showFontPanel:" target="-2" id="b0A-hx-eca"/>
+                                        </connections>
+                                    </button>
+                                </endViews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="275" id="vZ6-7I-Bcg"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </gridCell>
+                    </gridCells>
+                </gridView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="UrC-xJ-uLm" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="HKF-h7-5f9"/>
+                <constraint firstAttribute="bottom" secondItem="UrC-xJ-uLm" secondAttribute="bottom" constant="20" id="ONc-Tk-ofS"/>
+                <constraint firstItem="UrC-xJ-uLm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" constant="30" id="PqL-hD-Tee"/>
+                <constraint firstItem="UrC-xJ-uLm" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" id="ein-yo-Sdj"/>
+                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="UrC-xJ-uLm" secondAttribute="trailing" constant="30" id="xtz-lU-zPd"/>
+            </constraints>
+            <point key="canvasLocation" x="-6" y="126.5"/>
+        </customView>
+    </objects>
+</document>

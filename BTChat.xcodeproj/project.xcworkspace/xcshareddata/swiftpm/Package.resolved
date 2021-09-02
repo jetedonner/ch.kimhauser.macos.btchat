@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Defaults",
+        "repositoryURL": "https://github.com/sindresorhus/Defaults",
+        "state": {
+          "branch": null,
+          "revision": "63d93f97ad545c8bceb125a8a36175ea705f7cf5",
+          "version": "5.0.0"
+        }
+      },
+      {
+        "package": "LaunchAtLogin",
+        "repositoryURL": "https://github.com/sindresorhus/LaunchAtLogin",
+        "state": {
+          "branch": null,
+          "revision": "6b16bcdf7d45a9d76a768a5c4912dde925cf0e95",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "Preferences",
+        "repositoryURL": "https://github.com/sindresorhus/Preferences",
+        "state": {
+          "branch": null,
+          "revision": "b084fbf4fdf64b5846c72236d3a8197f312e6211",
+          "version": "2.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

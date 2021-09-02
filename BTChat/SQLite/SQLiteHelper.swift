@@ -1,0 +1,85 @@
+//
+//  SQLiteHelper.swift
+//  BTChat
+//
+//  Created by Kim David Hauser on 02.09.21.
+//  Copyright © 2021 sycf_ios. All rights reserved.
+//
+
+import Foundation
+import SQLite3
+
+class SQLiteHelper {
+    
+    var db:OpaquePointer?
+    let dbName:String = "BTChatDB.db"
+    
+    init(){
+        self.db = self.openDatabase()
+//        self.createTable()
+        self.insert()
+    }
+
+    func openDatabase() -> OpaquePointer? {
+        var db: OpaquePointer?
+        if sqlite3_open(dbName, &db) == SQLITE_OK {
+            print("Successfully opened connection to database at \(dbName)")
+            return db
+        } else {
+            print("Unable to open database.")
+        }
+        return nil
+    }
+    
+    let createTableString = """
+    CREATE TABLE IF NOT EXISTS Contact(
+    Id INT PRIMARY KEY NOT NULL,
+    Name CHAR(255));
+    """
+
+    func createTable() {
+      // 1
+      var createTableStatement: OpaquePointer?
+      // 2
+      if sqlite3_prepare_v2(db, createTableString, -1, &createTableStatement, nil) == SQLITE_OK {
+        // 3
+        if sqlite3_step(createTableStatement) == SQLITE_DONE {
+          print("\nContact table created.")
+        } else {
+          print("\nContact table could not be created.")
+        }
+      } else {
+        print("\nCREATE TABLE statement could not be prepared.")
+      }
+      // 4
+      sqlite3_finalize(createTableStatement)
+    }
+    
+    let insertStatementString = "INSERT INTO Contact (Id, Name) VALUES (?, ?);"
+    func insert() {
+      var insertStatement: OpaquePointer?
+      // 1
+      if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+        let id: Int32 = 3
+        let name: NSString = "DaVe"
+        // 2
+        sqlite3_bind_int(insertStatement, 1, id)
+        // 3
+        sqlite3_bind_text(insertStatement, 2, name.utf8String, -1, nil)
+        // 4
+        if sqlite3_step(insertStatement) == SQLITE_DONE {
+          print("\nSuccessfully inserted row.")
+        } else {
+          print("\nCould not insert row.")
+        }
+      } else {
+        print("\nINSERT statement could not be prepared.")
+      }
+      // 5
+      sqlite3_finalize(insertStatement)
+    }
+    
+    func close(){
+        sqlite3_close(self.db)
+    }
+}

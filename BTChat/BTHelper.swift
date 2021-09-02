@@ -67,16 +67,17 @@ extension ViewController {
     
     func sendingBytes() {
         let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        sendDataIndex = 0
         print("Maximum writeValue len: \(maxLen)")
 //        self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
-        while dataToSend.length > sendDataIndex {
-            var amountToSend = dataToSend.length - sendDataIndex
+        while dataToSend.count > sendDataIndex {
+            var amountToSend = dataToSend.count - sendDataIndex
             
             if amountToSend > maxLen {
                 amountToSend = maxLen
             }
 
-            let chunk = Data(bytes: UnsafeRawPointer(dataToSend.bytes + sendDataIndex), count: amountToSend)
+            let chunk = Data(bytes: UnsafeRawPointer(NSData(data: dataToSend).bytes + sendDataIndex), count: amountToSend)
             //adding to the header with chunk
 //            let strData = String(format: "%dHello %@", CountValue, chunk as CVarArg)
 

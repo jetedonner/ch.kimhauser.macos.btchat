@@ -34,5 +34,7 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

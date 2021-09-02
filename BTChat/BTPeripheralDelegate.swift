@@ -57,7 +57,7 @@ extension ViewController: CBPeripheralDelegate{
 //                peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data (LONG) ...")
                 var str = txtMsg.stringValue
-                self.dataToSend =  NSData(data: str.data(using: .utf8)!)
+                self.dataToSend =  str.data(using: .utf8)!
                 self.sendingBytes()
 //                break
             }
