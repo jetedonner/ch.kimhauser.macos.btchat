@@ -69,9 +69,69 @@ extension ViewController {
     }
     
     @IBAction func sendBTChatMsg(_ sender: Any){
+        var maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        print("Maximum writeValue len: \(maxLen)")
         self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withResponse)
         self.logStatus(status: "Sending data ...")
         txtMsg.stringValue = ""
+    }
+    
+    
+    
+    
+    
+    func sendingBytes() {
+        var maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        while dataToSend.length > sendDataIndex {
+            var amountToSend = dataToSend.length - sendDataIndex
+            
+            if amountToSend > maxLen {
+                amountToSend = maxLen
+            }
+
+            let chunk = Data(bytes: UnsafeRawPointer(dataToSend.bytes + sendDataIndex), count: amountToSend)
+            //adding to the header with chunk
+            var strData = String(format: "%dHello %@", CountValue, chunk as CVarArg)
+
+            var ChunkHeaderAddded = strData.data(using: .utf8)
+
+            print("\(ChunkHeaderAddded)")
+            CountValue = Int(CountValue) + 1
+//            let boolValue = connectingPeripheral.canSendWriteWithoutResponse
+//            if !boolValue {
+//                EmptyReceiveImagedata.insert(ChunkHeaderAddded, at: 0)
+//                //      return;
+//            }
+            self.daPeripheral!.writeValue(ChunkHeaderAddded!, for: self.daChar!, type: .withoutResponse)
+            sendDataIndex += amountToSend
+        }
+//        if completionFlag == false {
+//            sendDataIndex = 0
+//            print(String(format: "CountOf ---> %lu", UInt(EmptyReceiveImagedata.count)))
+//            while EmptyReceiveImagedata.count > sendDataIndex {
+//                print(String(format: "sendData ---> %ld", Int(sendDataIndex)))
+//                //      Boolean boolValue = (self.ConnectingPeripheral.canSendWriteWithoutResponse);
+//                //      if (!boolValue) {
+//                //        return;
+//                //      }
+//                connectingPeripheral.writeValue(EmptyReceiveImagedata.object(atIndex: sendDataIndex), for: characterstics, type: .withoutResponse)
+//                sendDataIndex = sendDataIndex + 1
+//            }
+//        }
+        let count: Float = Float((10 * sendDataIndex) / dataToSend.length)
+//        completion = count / 10
+//        BleDelegate.progressBarCallback(completion)
+        let Eom = "Completed".data(using: .utf8)
+        if let Eom = Eom {
+            self.daPeripheral!.writeValue(Eom, for: self.daChar!, type: .withoutResponse)
+        }
+//        BleDelegate.connnectingStatus(false)
+//        BleDelegate.didCompleteStatus()
+        completionFlag = true
+        self.daPeripheral!.setNotifyValue(true, for: self.daChar!)
+        print("SentAll the packets")
+//        notification("Sent all the packets")
+//        completion = 0.0
     }
 }
 

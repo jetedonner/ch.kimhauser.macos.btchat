@@ -8,6 +8,7 @@
 
 import Cocoa
 import CoreBluetooth
+import Preferences
 
 class ViewController: NSViewController, NSTextFieldDelegate {
 
@@ -28,6 +29,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     var daPeripheral:CBPeripheral?
     var daChar:CBCharacteristic?
     
+//    var dataToSend:NSData = NSData()
+    var sendDataIndex:Int = 0
+    var CountValue:Int = 0
+    var completionFlag:Bool = false
+    var dataToSend:NSData = "MULTI LINBE EXAMPLE".data(using: .utf8) as! NSData
 //    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
     
     override func viewDidLoad() {
@@ -52,14 +58,36 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         }
     }
     
+    private lazy var preferencesWindowController = PreferencesWindowController(
+        preferencePanes: [
+            GeneralPreferenceViewController(),
+            AdvancedPreferenceViewController()
+        ],
+        style: .toolbarItems
+    )
+
+//    func applicationDidFinishLaunching(_ notification: Notification) {}
+
+    @IBAction
+    func preferencesMenuItemActionHandler(_ sender: NSMenuItem) {
+        preferencesWindowController.show()
+    }
+    
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
             // Do something against ENTER key
             self.sendBTChatMsg(cmdSend)
+            self.sendingBytes()
             return true
         }
         // return true if the action was handled; otherwise false
         return false
+    }
+    
+    
+    @IBAction func showAbout(_ sender:Any?){
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.orderFrontStandardAboutPanel(sender)
     }
 
 }

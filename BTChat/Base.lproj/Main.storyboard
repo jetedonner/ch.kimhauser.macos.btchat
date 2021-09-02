@@ -716,7 +716,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rq-Zr-Acq">
-                                <rect key="frame" x="42" y="10" width="509" height="21"/>
+                                <rect key="frame" x="42" y="10" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="BTChat ready ..." id="VfM-lg-MGe">
                                     <font key="font" metaFont="system" size="10"/>
@@ -745,12 +745,16 @@
                                             <menuItem title="About BTChat" id="l5y-vH-lX3">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                                 <connections>
-                                                    <action selector="orderFrontStandardAboutPanel:" target="rPt-NT-nkU" id="aWz-XI-s6a"/>
+                                                    <action selector="showAbout:" target="XfG-lQ-9wD" id="5VW-Lb-ImC"/>
                                                 </connections>
                                             </menuItem>
                                             <menuItem isSeparatorItem="YES" id="9NB-Xd-TzW"/>
                                             <menuItem title="Scan nearby" id="XGI-b3-90k"/>
-                                            <menuItem title="Preferences" id="9o0-Oa-pzM"/>
+                                            <menuItem title="Preferences" id="9o0-Oa-pzM">
+                                                <connections>
+                                                    <action selector="preferencesMenuItemActionHandler:" target="XfG-lQ-9wD" id="d2s-4z-wJE"/>
+                                                </connections>
+                                            </menuItem>
                                             <menuItem isSeparatorItem="YES" id="AZv-f6-LMT"/>
                                             <menuItem title="Quit BTChat" id="tKK-Ve-nqQ">
                                                 <connections>

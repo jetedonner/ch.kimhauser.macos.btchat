@@ -18,21 +18,12 @@ extension ViewController: CBCentralManagerDelegate{
             print("peri: \(discoveredPeripheral)")
             self.allDiscPeripherals.append(discoveredPeripheral)
             discoveredPeripheral.delegate = self
-//            if(discoveredPeripheral.identifier == self.dariaUUID){
-////                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
-////                self.stopScan()
-//                self.centralManager.connect(discoveredPeripheral, options: nil)
-//            }else{
-//                self.logMsg(msg: "Discovered peripheral \(discoveredPeripheral.identifier) => Trying to connect ...")
-//                self.stopScan()
-                self.centralManager.connect(discoveredPeripheral, options: nil)
-//            }
+            self.centralManager.connect(discoveredPeripheral, options: nil)
         }
     }
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connected peripheral: " + peripheral.name!)
-//        self.logMsg(msg: "> Connected peripheral \(peripheral.identifier) => Discovering services ...")
         peripheral.discoverServices([CBUUID(string: Constants.SERVICE_UUID.rawValue)])
 
     }
@@ -49,7 +40,7 @@ extension ViewController: CBCentralManagerDelegate{
     }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-//        self.tryScanForBTChat(central.state)
+
     }
 }
 

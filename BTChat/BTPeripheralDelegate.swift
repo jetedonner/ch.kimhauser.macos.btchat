@@ -46,6 +46,7 @@ extension ViewController: CBPeripheralDelegate{
 //                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
                 peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data ...")
+                self.sendingBytes() 
                 
 //                self.logStatus(status: "Data sent!", stopProgressIndicator: true)
                 break

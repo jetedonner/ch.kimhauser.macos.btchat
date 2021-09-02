@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Preferences
 
 extension NSImage.Name {
     static let Image = NSImage.Name("Image")
@@ -18,6 +19,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     var monitor: Any!
     
+//    private lazy var preferencesWindowController = PreferencesWindowController(
+//        preferencePanes: [
+//            GeneralPreferenceViewController()/*,
+//            AdvancedPreferenceViewController()*/
+//        ]
+//    )
+//
+////    func applicationDidFinishLaunching(_ notification: Notification) {}
+//
+//    @IBAction
+//    func preferencesMenuItemActionHandler(_ sender: NSMenuItem) {
+//        preferencesWindowController.show()
+//    }
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
             button.image = NSImage(named:.Image)

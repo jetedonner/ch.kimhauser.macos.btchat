@@ -27,7 +27,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>BTChat aims to quickly share text messages with nearby contacts</string>
+	<string>BTChat aims to quickly share text messages with nearby contacts over BLE (Bluetooth)</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2021 kimhauser.ch. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>

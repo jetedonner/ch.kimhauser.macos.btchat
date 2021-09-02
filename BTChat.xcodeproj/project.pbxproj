@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		557D32F326DE210F001BBE8B /* BTPeripheralManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D32F226DE210F001BBE8B /* BTPeripheralManagerDelegate.swift */; };
 		557D332626DE951A001BBE8B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 557D332426DE951A001BBE8B /* LICENSE */; };
 		557D332726DE951A001BBE8B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 557D332526DE951A001BBE8B /* README.md */; };
+		557D332A26E0AF2B001BBE8B /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 557D332926E0AF2B001BBE8B /* Preferences */; };
+		557D332C26E0AF55001BBE8B /* PreferencesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557D332B26E0AF55001BBE8B /* PreferencesHelper.swift */; };
+		557D332E26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */; };
+		557D333026E0B18F001BBE8B /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */; };
+		557D333226E0B207001BBE8B /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */; };
 		55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D65AB826DD452100F6AF46 /* BTHelper.swift */; };
 		55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
 		691AE7721FE24EC6006CE4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691AE7711FE24EC6006CE4DB /* AppDelegate.swift */; };
@@ -28,6 +33,10 @@
 		557D32F226DE210F001BBE8B /* BTPeripheralManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTPeripheralManagerDelegate.swift; sourceTree = "<group>"; };
 		557D332426DE951A001BBE8B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		557D332526DE951A001BBE8B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		557D332B26E0AF55001BBE8B /* PreferencesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesHelper.swift; sourceTree = "<group>"; };
+		557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewControllerOLD.xib; sourceTree = "<group>"; };
+		557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedPreferenceViewController.xib; sourceTree = "<group>"; };
+		557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		55D65AB826DD452100F6AF46 /* BTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTHelper.swift; sourceTree = "<group>"; };
 		55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		691AE76E1FE24EC5006CE4DB /* BTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */,
+				557D332A26E0AF2B001BBE8B /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +91,13 @@
 		691AE7701FE24EC5006CE4DB /* BTChat */ = {
 			isa = PBXGroup;
 			children = (
+				557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */,
 				691AE7711FE24EC6006CE4DB /* AppDelegate.swift */,
 				691AE7751FE24EC6006CE4DB /* Assets.xcassets */,
 				691AE7731FE24EC6006CE4DB /* ViewController.swift */,
 				691AE7771FE24EC6006CE4DB /* Main.storyboard */,
+				557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */,
+				557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */,
 				691AE77A1FE24EC6006CE4DB /* Info.plist */,
 				691AE77B1FE24EC6006CE4DB /* BTChat.entitlements */,
 				55D65AB826DD452100F6AF46 /* BTHelper.swift */,
@@ -92,6 +105,7 @@
 				557D32F026DE2098001BBE8B /* BTPeripheralDelegate.swift */,
 				557D32EE26DE2025001BBE8B /* BTCentralManagerDelegate.swift */,
 				557D32EC26DD6440001BBE8B /* TESET.storyboard */,
+				557D332B26E0AF55001BBE8B /* PreferencesHelper.swift */,
 			);
 			path = BTChat;
 			sourceTree = "<group>";
@@ -112,6 +126,9 @@
 			dependencies = (
 			);
 			name = BTChat;
+			packageProductDependencies = (
+				557D332926E0AF2B001BBE8B /* Preferences */,
+			);
 			productName = StatusBar;
 			productReference = 691AE76E1FE24EC5006CE4DB /* BTChat.app */;
 			productType = "com.apple.product-type.application";
@@ -141,6 +158,9 @@
 				Base,
 			);
 			mainGroup = 691AE7651FE24EC5006CE4DB;
+			packageReferences = (
+				557D332826E0AF2B001BBE8B /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = 691AE76F1FE24EC5006CE4DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -157,9 +177,12 @@
 			files = (
 				557D32ED26DD6440001BBE8B /* TESET.storyboard in Resources */,
 				691AE7761FE24EC6006CE4DB /* Assets.xcassets in Resources */,
+				557D333026E0B18F001BBE8B /* AdvancedPreferenceViewController.xib in Resources */,
 				557D332726DE951A001BBE8B /* README.md in Resources */,
 				557D332626DE951A001BBE8B /* LICENSE in Resources */,
+				557D332E26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib in Resources */,
 				691AE7791FE24EC6006CE4DB /* Main.storyboard in Resources */,
+				557D333226E0B207001BBE8B /* GeneralPreferenceViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +196,7 @@
 				55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */,
 				691AE7741FE24EC6006CE4DB /* ViewController.swift in Sources */,
 				557D32EF26DE2025001BBE8B /* BTCentralManagerDelegate.swift in Sources */,
+				557D332C26E0AF55001BBE8B /* PreferencesHelper.swift in Sources */,
 				557D32F126DE2098001BBE8B /* BTPeripheralDelegate.swift in Sources */,
 				557D32F326DE210F001BBE8B /* BTPeripheralManagerDelegate.swift in Sources */,
 				691AE7721FE24EC6006CE4DB /* AppDelegate.swift in Sources */,
@@ -295,7 +319,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -308,7 +333,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				INFOPLIST_FILE = BTChat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.btchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -325,7 +354,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = PB7SHXTJHG;
 				INFOPLIST_FILE = BTChat/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.btchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		557D332826E0AF2B001BBE8B /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		557D332926E0AF2B001BBE8B /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 557D332826E0AF2B001BBE8B /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 691AE7661FE24EC5006CE4DB /* Project object */;
 }
