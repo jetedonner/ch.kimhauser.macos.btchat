@@ -25,8 +25,7 @@
 		5593B57026E10FF9007768FD /* BTChatDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B56F26E10FF9007768FD /* BTChatDefaults.swift */; };
 		5593B57526E11224007768FD /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B57426E11224007768FD /* CryptoHelper.swift */; };
 		5593B57C26E117CF007768FD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
-		5593B57F26E117D3007768FD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B57A26E11487007768FD /* CryptoSwift.framework */; };
-		5593B58026E117D3007768FD /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B57A26E11487007768FD /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5593B58326E11B81007768FD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B58226E11B81007768FD /* CryptoSwift.framework */; };
 		55B4F8CA26E0B89E004F6C77 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C826E0B89E004F6C77 /* settings.png */; };
 		55B4F8CB26E0B89E004F6C77 /* gear.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C926E0B89E004F6C77 /* gear.svg */; };
 		55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8CC26E0BD66004F6C77 /* antenna.svg */; };
@@ -46,7 +45,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5593B58026E117D3007768FD /* CryptoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,7 +68,7 @@
 		557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		5593B56F26E10FF9007768FD /* BTChatDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTChatDefaults.swift; sourceTree = "<group>"; };
 		5593B57426E11224007768FD /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
-		5593B57A26E11487007768FD /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		5593B58226E11B81007768FD /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
 		55B4F8C826E0B89E004F6C77 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		55B4F8C926E0B89E004F6C77 /* gear.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gear.svg; sourceTree = "<group>"; };
 		55B4F8CC26E0BD66004F6C77 /* antenna.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = antenna.svg; sourceTree = "<group>"; };
@@ -93,7 +91,7 @@
 				55B4F8D126E0E331004F6C77 /* Defaults in Frameworks */,
 				55B4F8D426E0E35A004F6C77 /* LaunchAtLogin in Frameworks */,
 				5593B57C26E117CF007768FD /* CoreBluetooth.framework in Frameworks */,
-				5593B57F26E117D3007768FD /* CryptoSwift.framework in Frameworks */,
+				5593B58326E11B81007768FD /* CryptoSwift.framework in Frameworks */,
 				557D332A26E0AF2B001BBE8B /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,7 +144,7 @@
 		55D65ABA26DD506500F6AF46 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5593B57A26E11487007768FD /* CryptoSwift.framework */,
+				5593B58226E11B81007768FD /* CryptoSwift.framework */,
 				55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;

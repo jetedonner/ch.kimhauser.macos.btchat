@@ -15,7 +15,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZlnuIBm5fJb9ZeLocFm4ixbLaPO0xszPk712WaPDbaU=
+			dp2QbAcv+OFsVk+8b/Ikcc+AhRc+TrjHRW8JJXzoxyU=
 			</data>
 		</dict>
 		<key>Headers/CryptoSwift.h</key>
@@ -37,6 +37,20 @@
 			<key>hash2</key>
 			<data>
 			ivjuVlVY/MlSSNGa1EJrWbEjFRon1aom4eSCimrxsy8=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/Project/x86_64-apple-macos.swiftsourceinfo</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yNnVAXHViPeWP09WuBowA07AwzH2hPzLljdpF3R52FI=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/Project/x86_64.swiftsourceinfo</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			yNnVAXHViPeWP09WuBowA07AwzH2hPzLljdpF3R52FI=
 			</data>
 		</dict>
 		<key>Modules/CryptoSwift.swiftmodule/arm64-apple-macos.swiftdoc</key>
@@ -79,6 +93,48 @@
 			<key>hash2</key>
 			<data>
 			KtcuCClbR0kt6PnC0LCbKyC/VPtlUd3rFeIF/ZjYTbQ=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/x86_64-apple-macos.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			tp/PUEkFEnXCmG7TU2MBKI3ZqOkar2GwP62ZOIxULQE=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/x86_64-apple-macos.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6pLTUM+gzhy3t68fEf5LCMdXfxk2Z7G0R+qyi3RUwlw=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/x86_64-apple-macos.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YGIQDp4bEbic85+AB04WGrI1S+T/DEaxvSheIcXJQbE=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/x86_64.swiftdoc</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			tp/PUEkFEnXCmG7TU2MBKI3ZqOkar2GwP62ZOIxULQE=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/x86_64.swiftinterface</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			6pLTUM+gzhy3t68fEf5LCMdXfxk2Z7G0R+qyi3RUwlw=
+			</data>
+		</dict>
+		<key>Modules/CryptoSwift.swiftmodule/x86_64.swiftmodule</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			YGIQDp4bEbic85+AB04WGrI1S+T/DEaxvSheIcXJQbE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
