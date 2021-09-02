@@ -105,7 +105,7 @@ extension ViewController {
 //                EmptyReceiveImagedata.insert(ChunkHeaderAddded, at: 0)
 //                //      return;
 //            }
-            self.daPeripheral!.writeValue(ChunkHeaderAddded!, for: self.daChar!, type: .withResponse)
+            self.daPeripheral!.writeValue(ChunkHeaderAddded!, for: self.daCharLong!, type: .withResponse)
             sendDataIndex += amountToSend
         }
 //        if completionFlag == false {
@@ -126,12 +126,12 @@ extension ViewController {
 //        BleDelegate.progressBarCallback(completion)
         
         if let EOM_MSG = EOM_MSG {
-            self.daPeripheral!.writeValue(EOM_MSG, for: self.daChar!, type: .withResponse)
+            self.daPeripheral!.writeValue(EOM_MSG, for: self.daCharLong!, type: .withResponse)
         }
 //        BleDelegate.connnectingStatus(false)
 //        BleDelegate.didCompleteStatus()
         completionFlag = true
-        self.daPeripheral!.setNotifyValue(true, for: self.daChar!)
+        self.daPeripheral!.setNotifyValue(true, for: self.daCharLong!)
         print("SentAll the packets")
 //        notification("Sent all the packets")
 //        completion = 0.0
