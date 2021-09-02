@@ -10,11 +10,6 @@ import Foundation
 import Cocoa
 import CoreBluetooth
 
-//enum Constants: String {
-//    case SERVICE_UUID = "40689029-B356-463E-9F48-BAB068903EF5"
-//    case CHAR_UUID = "40689029-B356-463E-9F48-BAB068903123"
-//}
-
 extension ViewController: CBPeripheralDelegate{
     
     func peripheralDidUpdateName(_ peripheral: CBPeripheral) {
@@ -23,9 +18,7 @@ extension ViewController: CBPeripheralDelegate{
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
-
         for service in services {
-//            self.logMsg(msg: "> Discovered a service: \(service) => Trying to get characteristics ...")
             peripheral.discoverCharacteristics([CBUUID(string: Constants.CHAR_UUID.rawValue), CBUUID(string: Constants.CHAR_LONG_UUID.rawValue)], for: service)
         }
     }
@@ -39,31 +32,22 @@ extension ViewController: CBPeripheralDelegate{
         guard let characteristics = service.characteristics else { return }
 
         for characteristic in characteristics {
-//            self.logMsg(msg: "  > Discovered characteristics: \(characteristic) => AND NOW ??? ...")
             if(characteristic.uuid.isEqual(CBUUID(string: Constants.CHAR_UUID.rawValue))){
                 self.daPeripheral = peripheral
                 self.daChar = characteristic
-//                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
                 peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data ...")
-//                var str = txtMsg.stringValue
-//                self.dataToSend =  NSData(data: str.data(using: .utf8)!)
-//                self.sendingBytes()
-//                break
             }else if(characteristic.uuid.isEqual(CBUUID(string: Constants.CHAR_LONG_UUID.rawValue))){
                 self.daPeripheral = peripheral
                 self.daCharLong = characteristic
-//                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
-//                peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data (LONG) ...")
-//                var str = txtMsg.stringValue
                 do{
                     self.dataToSend = try CryptoHelper.encrypt(str: "Initial-MSG")
                     self.sendingBytes()
                 }catch{
-                    
+                    print("ERROR: Encryption failed! (\(error)")
+                    self.logMsg(msg: "ERROR: Encryption failed! (\(error)")
                 }
-//                break
             }
         }
     }
@@ -83,7 +67,7 @@ extension ViewController: CBPeripheralDelegate{
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
         if error == nil {
-            print("Message sent=======>")//\(String(describing: characteristic.value))
+            print("Message sent=======>")
         }else{
 
             print("Message Not sent=======>\(String(describing: error))")
@@ -97,6 +81,11 @@ extension ViewController: CBPeripheralDelegate{
     func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {
         var tmp = -1
         tmp /= -1
+    }
+    
+    func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
+        print("Peripheral services changed...")
+        peripheral.discoverServices([CBUUID(string: Constants.SERVICE_UUID.rawValue)])
     }
 }
 

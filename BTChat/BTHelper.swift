@@ -68,8 +68,8 @@ extension ViewController {
     func sendingBytes() {
         let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
         sendDataIndex = 0
+        completion = 0
         print("Maximum writeValue len: \(maxLen)")
-//        self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
         while dataToSend.count > sendDataIndex {
             var amountToSend = dataToSend.count - sendDataIndex
             
@@ -92,6 +92,10 @@ extension ViewController {
 //            }
             self.daPeripheral!.writeValue(ChunkHeaderAddded, for: self.daCharLong!, type: .withResponse)
             sendDataIndex += amountToSend
+            let count: Float = Float((10 * sendDataIndex) / dataToSend.count)
+            completion = count / 10
+            self.spnSending.doubleValue = Double(100.0 * completion)
+            self.spnSending.updateLayer()
         }
 //        if completionFlag == false {
 //            sendDataIndex = 0
@@ -106,8 +110,7 @@ extension ViewController {
 //                sendDataIndex = sendDataIndex + 1
 //            }
 //        }
-//        let count: Float = Float((10 * sendDataIndex) / dataToSend.length)
-//        completion = count / 10
+        
 //        BleDelegate.progressBarCallback(completion)
         
 //        if let EOM_MSG = EOM_MSG {

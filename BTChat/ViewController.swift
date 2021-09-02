@@ -20,6 +20,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet var lblStatus:NSTextField!
     @IBOutlet var cmdSend:NSButton!
     @IBOutlet var spnScnanning:NSProgressIndicator!
+    @IBOutlet var spnSending:NSProgressIndicator!
     @IBOutlet var cmbNearby:NSPopUpButton!
     
     @IBOutlet weak var window: NSWindow!
@@ -38,6 +39,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     var completionFlag:Bool = false
     var dataToSend:Data = "MULTI LINBE EXAMPLE".data(using: .utf8)!
     var dataReceived:Data = Data("".data(using: .utf8)!)
+    var completion:Float = 0.0
     
     let EOM_MSG = "###==BTChat-EOM==###"
 //    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
@@ -101,20 +103,10 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         do{
             self.dataToSend = try CryptoHelper.encrypt(str: txtMsg.stringValue)
-//            CryptoHelper.testAESGCMTestCase3Combined()
-//            self.dataToSend = try CryptoHelper.aesEncrypt(inputData: self.dataToSend)
-            
-            let tmpStr:String = CryptoHelper.decrypt(self.dataToSend.bytes)
-            
-//            var tmpData:Data = try CryptoHelper.aesDecrypt(encryptedData: self.dataToSend)
-            
-//            var tmpStr = String(data: tmpData, encoding: .utf8)
-            print(tmpStr)
-            
-        }catch {
-            print("ERROR: Encryption failed!")
+        }catch{
+            print("ERROR: Encryption failed! (\(error)")
+            self.logMsg(msg: "ERROR: Encryption failed! (\(error)")
         }
-        
         self.sendingBytes()
         txtMsg.stringValue = ""
     }
