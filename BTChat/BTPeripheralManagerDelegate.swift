@@ -80,29 +80,28 @@ extension ViewController: CBPeripheralManagerDelegate{
     
     
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
-        var tmp = -1
-        tmp /= -1
         if(requests.count == 1){
             let str:String = String(decoding: requests[0].value!, as: UTF8.self)
-            if(requests[0].characteristic == self.daCharLong){
-                self.logMsg(msg: "New string (LONG): \(str)")
-//                var dataNG:Data = Data()
+            if(requests[0].characteristic.uuid == self.daCharLong?.uuid){
                 if(str == EOM_MSG){
                     let str:String = String(decoding: self.dataReceived, as: UTF8.self)
-                    self.logMsg(msg: "New LONG string: \(str)")
+                    self.printNewMsg2Chat(msg: str)
+                    self.dataReceived.removeAll()
                 }else{
                     self.dataReceived.append(requests[0].value!)
                 }
             }else{
-    //            if(str == EOM_MSG){
-    //                self.logMsg(msg: "EOM received: \(str)")
-    //            }else{
-    //
-    //            }
-                self.logMsg(msg: "New string: \(str)")
+                self.printNewMsg2Chat(msg: str)
             }
             peripheral.respond(to: requests[0], withResult: .success)
         }
+    }
+    
+    func printNewMsg2Chat(msg:String){
+        let today = Date()
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "HH:mm:ss"
+        self.logMsg(msg: "\(formatter3.string(from: today)): \(msg)")
     }
 }
 

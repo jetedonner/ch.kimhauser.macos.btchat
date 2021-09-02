@@ -64,22 +64,6 @@ extension ViewController {
         self.spnScnanning.startAnimation(nil)
         self.centralManager.scanForPeripherals(withServices: [CBUUID(string: Constants.SERVICE_UUID.rawValue)], options: nil)// [CBCentralManagerScanOptionAllowDuplicatesKey: true])
     }
-
-    @IBAction func doScanForBTChatNearby(_ sender: Any){
-        self.tryScanForBTChat(self.centralManager.state)
-    }
-    
-    @IBAction func sendBTChatMsg(_ sender: Any){
-        let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
-        print("Maximum writeValue len: \(maxLen)")
-        self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withResponse)
-        self.logStatus(status: "Sending data ...")
-        txtMsg.stringValue = ""
-    }
-    
-    
-    
-    
     
     func sendingBytes() {
         let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
@@ -94,9 +78,9 @@ extension ViewController {
 
             let chunk = Data(bytes: UnsafeRawPointer(dataToSend.bytes + sendDataIndex), count: amountToSend)
             //adding to the header with chunk
-            let strData = String(format: "%dHello %@", CountValue, chunk as CVarArg)
+//            let strData = String(format: "%dHello %@", CountValue, chunk as CVarArg)
 
-            let ChunkHeaderAddded = strData.data(using: .utf8)
+            let ChunkHeaderAddded = chunk// strData.data(using: .utf8)
 
             print("\(String(describing: ChunkHeaderAddded))")
             CountValue = Int(CountValue) + 1
@@ -105,7 +89,7 @@ extension ViewController {
 //                EmptyReceiveImagedata.insert(ChunkHeaderAddded, at: 0)
 //                //      return;
 //            }
-            self.daPeripheral!.writeValue(ChunkHeaderAddded!, for: self.daCharLong!, type: .withResponse)
+            self.daPeripheral!.writeValue(ChunkHeaderAddded, for: self.daCharLong!, type: .withResponse)
             sendDataIndex += amountToSend
         }
 //        if completionFlag == false {

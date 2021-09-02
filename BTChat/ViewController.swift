@@ -79,15 +79,29 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
-            // Do something against ENTER key
-            var str = txtMsg.stringValue
-            self.sendBTChatMsg(cmdSend)
-            self.dataToSend =  NSData(data: str.data(using: .utf8)!)
+//            var str = txtMsg.stringValue
+            self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
             self.sendingBytes()
+            txtMsg.stringValue = ""
             return true
         }
         // return true if the action was handled; otherwise false
         return false
+    }
+    
+    @IBAction func doScanForBTChatNearby(_ sender: Any){
+        self.tryScanForBTChat(self.centralManager.state)
+    }
+    
+    @IBAction func sendBTChatMsg(_ sender: Any){
+//        let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+//        print("Maximum writeValue len: \(maxLen)")
+//        self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withResponse)
+//        self.logStatus(status: "Sending data ...")
+//        txtMsg.stringValue = ""
+        self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
+        self.sendingBytes()
+        txtMsg.stringValue = ""
     }
     
     
