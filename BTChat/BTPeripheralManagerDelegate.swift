@@ -78,13 +78,22 @@ extension ViewController: CBPeripheralManagerDelegate{
         print("service: \(service)")
     }
     
+    
     func peripheralManager(_ peripheral: CBPeripheralManager, didReceiveWrite requests: [CBATTRequest]) {
         var tmp = -1
         tmp /= -1
         if(requests.count == 1){
             let str = String(decoding: requests[0].value!, as: UTF8.self)
-           
-            self.logMsg(msg: "New string: \(str)")
+            if(requests[0].characteristic == self.daCharLong){
+                self.logMsg(msg: "New string (LONG): \(str)")
+            }else{
+    //            if(str == EOM_MSG){
+    //                self.logMsg(msg: "EOM received: \(str)")
+    //            }else{
+    //
+    //            }
+                self.logMsg(msg: "New string: \(str)")
+            }
             peripheral.respond(to: requests[0], withResult: .success)
         }
     }
