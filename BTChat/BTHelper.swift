@@ -66,7 +66,12 @@ extension ViewController {
     }
     
     func sendingBytes() {
-        let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        
+        guard let daPeripheral = self.daPeripheral else {
+            return
+        }
+        
+        let maxLen:Int = (daPeripheral.maximumWriteValueLength(for: .withResponse))
         sendDataIndex = 0
         completion = 0
         print("Maximum writeValue len: \(maxLen)")
@@ -90,7 +95,7 @@ extension ViewController {
 //                EmptyReceiveImagedata.insert(ChunkHeaderAddded, at: 0)
 //                //      return;
 //            }
-            self.daPeripheral!.writeValue(ChunkHeaderAddded, for: self.daCharLong!, type: .withResponse)
+            daPeripheral.writeValue(ChunkHeaderAddded, for: self.daCharLong!, type: .withResponse)
             sendDataIndex += amountToSend
 //            let count: Float = Float((10 * sendDataIndex) / dataToSend.count)
             completion = 100.0 / Float((dataToSend.count / sendDataIndex)) // count / 10
@@ -117,12 +122,12 @@ extension ViewController {
 //        BleDelegate.progressBarCallback(completion)
         
 //        if let EOM_MSG = EOM_MSG {
-        self.daPeripheral!.writeValue(EOM_MSG.data(using: .utf8)!, for: self.daCharLong!, type: .withResponse)
+        daPeripheral.writeValue(EOM_MSG.data(using: .utf8)!, for: self.daCharLong!, type: .withResponse)
 //        }
 //        BleDelegate.connnectingStatus(false)
 //        BleDelegate.didCompleteStatus()
         completionFlag = true
-        self.daPeripheral!.setNotifyValue(true, for: self.daCharLong!)
+        daPeripheral.setNotifyValue(true, for: self.daCharLong!)
         print("SentAll the packets")
 //        notification("Sent all the packets")
 //        completion = 0.0

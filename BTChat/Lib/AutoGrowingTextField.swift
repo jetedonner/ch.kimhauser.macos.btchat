@@ -67,6 +67,7 @@ class AutoGrowingTextField: NSTextField {
         super.textDidChange(notification)
         self.invalidateIntrinsicContentSize()
         var sz:NSSize = self.sizeForProgrammaticText(self.stringValue)
+        if(sz.height >= 150){ return }
         sz.width = self.frame.width
         let diff = sz.height - self.frame.height
         var orig = self.frame.origin

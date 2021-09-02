@@ -46,7 +46,7 @@
                     </columns>
                     <gridCells>
                         <gridCell row="ukr-az-gqc" column="GGj-JC-w4E" id="sRb-hw-f4U">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vt6-jC-8Jo">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vt6-jC-8Jo">
                                 <rect key="frame" x="37" y="338" width="68" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Auto save:" id="uKy-ok-dDi">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -56,7 +56,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="ukr-az-gqc" column="cs9-fm-l2F" id="jPa-TM-cRP">
-                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eIh-jy-wRw">
+                            <button key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIh-jy-wRw">
                                 <rect key="frame" x="111" y="337" width="167" height="18"/>
                                 <buttonCell key="cell" type="check" title="Auto Save while editing" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dB2-6s-xY8">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -66,7 +66,7 @@
                         </gridCell>
                         <gridCell row="gSl-iE-cwq" column="GGj-JC-w4E" id="IXl-mV-waK"/>
                         <gridCell row="gSl-iE-cwq" column="cs9-fm-l2F" id="yFx-k0-cPt">
-                            <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="c2E-pX-Fuo">
+                            <textField key="contentView" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="1000" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2E-pX-Fuo">
                                 <rect key="frame" x="111" y="288" width="341" height="42"/>
                                 <textFieldCell key="cell" selectable="YES" id="D9h-tf-tnk">
                                     <font key="font" metaFont="message" size="11"/>
@@ -77,13 +77,13 @@
                             </textField>
                         </gridCell>
                         <gridCell row="Vxw-AW-fH6" column="GGj-JC-w4E" headOfMergedCell="YUZ-t2-HaZ" xPlacement="fill" id="YUZ-t2-HaZ">
-                            <box key="contentView" verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="0at-6J-tiq">
+                            <box key="contentView" verticalHuggingPriority="750" ambiguous="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="0at-6J-tiq">
                                 <rect key="frame" x="0.0" y="223" width="450" height="5"/>
                             </box>
                         </gridCell>
                         <gridCell row="Vxw-AW-fH6" column="cs9-fm-l2F" headOfMergedCell="YUZ-t2-HaZ" id="Nj4-9X-TOs"/>
                         <gridCell row="3rI-5v-nj2" column="GGj-JC-w4E" id="H7l-rR-qvn">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pCC-xo-gKS">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCC-xo-gKS">
                                 <rect key="frame" x="11" y="191" width="94" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Bitmap import:" id="zw7-G3-qks">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -93,7 +93,7 @@
                             </textField>
                         </gridCell>
                         <gridCell row="3rI-5v-nj2" column="cs9-fm-l2F" id="dEO-dF-qf0">
-                            <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uFJ-3w-B8K">
+                            <button key="contentView" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFJ-3w-B8K">
                                 <rect key="frame" x="111" y="190" width="239" height="18"/>
                                 <buttonCell key="cell" type="check" title="Scale down images to fit Artboards" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Mw9-dm-8vN">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
