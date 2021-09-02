@@ -125,9 +125,9 @@ extension ViewController {
 //        completion = count / 10
 //        BleDelegate.progressBarCallback(completion)
         
-        if let EOM_MSG = EOM_MSG {
-            self.daPeripheral!.writeValue(EOM_MSG, for: self.daCharLong!, type: .withResponse)
-        }
+//        if let EOM_MSG = EOM_MSG {
+        self.daPeripheral!.writeValue(EOM_MSG.data(using: .utf8)!, for: self.daCharLong!, type: .withResponse)
+//        }
 //        BleDelegate.connnectingStatus(false)
 //        BleDelegate.didCompleteStatus()
         completionFlag = true

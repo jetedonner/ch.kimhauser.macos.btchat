@@ -83,9 +83,16 @@ extension ViewController: CBPeripheralManagerDelegate{
         var tmp = -1
         tmp /= -1
         if(requests.count == 1){
-            let str = String(decoding: requests[0].value!, as: UTF8.self)
+            let str:String = String(decoding: requests[0].value!, as: UTF8.self)
             if(requests[0].characteristic == self.daCharLong){
                 self.logMsg(msg: "New string (LONG): \(str)")
+//                var dataNG:Data = Data()
+                if(str == EOM_MSG){
+                    let str:String = String(decoding: self.dataReceived, as: UTF8.self)
+                    self.logMsg(msg: "New LONG string: \(str)")
+                }else{
+                    self.dataReceived.append(requests[0].value!)
+                }
             }else{
     //            if(str == EOM_MSG){
     //                self.logMsg(msg: "EOM received: \(str)")

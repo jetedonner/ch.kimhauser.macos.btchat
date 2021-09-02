@@ -35,7 +35,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     var CountValue:Int = 0
     var completionFlag:Bool = false
     var dataToSend:NSData = NSData(data: "MULTI LINBE EXAMPLE".data(using: .utf8)!)
-    let EOM_MSG = "###==BTChat-EOM==###".data(using: .utf8)
+    var dataReceived:Data = Data("".data(using: .utf8)!)
+    
+    let EOM_MSG = "###==BTChat-EOM==###"
 //    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
     
     override func viewDidLoad() {
