@@ -56,9 +56,13 @@ extension ViewController: CBPeripheralDelegate{
 //                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
 //                peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data (LONG) ...")
-                var str = txtMsg.stringValue
-                self.dataToSend =  str.data(using: .utf8)!
-                self.sendingBytes()
+//                var str = txtMsg.stringValue
+                do{
+                    self.dataToSend = try CryptoHelper.encrypt(str: "Initial-MSG")
+                    self.sendingBytes()
+                }catch{
+                    
+                }
 //                break
             }
         }
