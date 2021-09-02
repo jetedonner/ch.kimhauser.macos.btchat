@@ -100,7 +100,17 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.dataToSend = txtMsg.stringValue.data(using: .utf8)!
         
         do{
-            self.dataToSend = try CryptoHelper.aesEncrypt(inputData: self.dataToSend)
+            self.dataToSend = try CryptoHelper.encrypt(str: txtMsg.stringValue)
+//            CryptoHelper.testAESGCMTestCase3Combined()
+//            self.dataToSend = try CryptoHelper.aesEncrypt(inputData: self.dataToSend)
+            
+            let tmpStr:String = CryptoHelper.decrypt(self.dataToSend.bytes)
+            
+//            var tmpData:Data = try CryptoHelper.aesDecrypt(encryptedData: self.dataToSend)
+            
+//            var tmpStr = String(data: tmpData, encoding: .utf8)
+            print(tmpStr)
+            
         }catch {
             print("ERROR: Encryption failed!")
         }
