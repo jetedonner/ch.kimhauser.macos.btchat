@@ -28,12 +28,14 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     public var allDiscPeripherals:[CBPeripheral] = []
     var daPeripheral:CBPeripheral?
     var daChar:CBCharacteristic?
+    var daCharLong:CBCharacteristic?
     
 //    var dataToSend:NSData = NSData()
     var sendDataIndex:Int = 0
     var CountValue:Int = 0
     var completionFlag:Bool = false
-    var dataToSend:NSData = "MULTI LINBE EXAMPLE".data(using: .utf8) as! NSData
+    var dataToSend:NSData = NSData(data: "MULTI LINBE EXAMPLE".data(using: .utf8)!)
+    let EOM_MSG = "###==BTChat-EOM==###".data(using: .utf8)
 //    var dariaUUID:UUID = UUID(uuidString: "77027073-6157-4C9B-9C64-93AE5FAF797F")!
     
     override func viewDidLoad() {
@@ -76,7 +78,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
             // Do something against ENTER key
+            var str = txtMsg.stringValue
             self.sendBTChatMsg(cmdSend)
+            self.dataToSend =  NSData(data: str.data(using: .utf8)!)
             self.sendingBytes()
             return true
         }

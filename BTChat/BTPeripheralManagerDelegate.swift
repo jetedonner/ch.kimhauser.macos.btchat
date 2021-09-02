@@ -55,9 +55,18 @@ extension ViewController: CBPeripheralManagerDelegate{
             value: nil,
             permissions: permissions)
         
-        service.characteristics = [characteristic]
+        let characteristicLongUUID = CBUUID(string: Constants.CHAR_LONG_UUID.rawValue)
+        let characteristicLong = CBMutableCharacteristic(
+            type: characteristicLongUUID,
+            properties: properties,
+            value: nil,
+            permissions: permissions)
+        
+        service.characteristics = [characteristic, characteristicLong]
         peripheralManager.add(service)
     }
+    
+    
     
     func peripheralManager(peripheral: CBPeripheralManager, didAddService service: CBService, error: NSError?)
     {

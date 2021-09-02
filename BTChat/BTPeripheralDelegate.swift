@@ -26,7 +26,7 @@ extension ViewController: CBPeripheralDelegate{
 
         for service in services {
 //            self.logMsg(msg: "> Discovered a service: \(service) => Trying to get characteristics ...")
-            peripheral.discoverCharacteristics([CBUUID(string: Constants.CHAR_UUID.rawValue)], for: service)
+            peripheral.discoverCharacteristics([CBUUID(string: Constants.CHAR_UUID.rawValue), CBUUID(string: Constants.CHAR_LONG_UUID.rawValue)], for: service)
         }
     }
 
@@ -46,11 +46,20 @@ extension ViewController: CBPeripheralDelegate{
 //                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
                 peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
                 self.logStatus(status: "Sending data ...")
-                self.sendingBytes() 
-                
-//                self.logStatus(status: "Data sent!", stopProgressIndicator: true)
-                break
-//                self.peripheralManager.updateValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic as! CBMutableCharacteristic, onSubscribedCentrals: nil)
+//                var str = txtMsg.stringValue
+//                self.dataToSend =  NSData(data: str.data(using: .utf8)!)
+//                self.sendingBytes()
+//                break
+            }else if(characteristic.uuid.isEqual(CBUUID(string: Constants.CHAR_LONG_UUID.rawValue))){
+                self.daPeripheral = peripheral
+                self.daCharLong = characteristic
+//                self.logMsg(msg: "  > Discovered RIGHT characteristics: \(characteristic) => Sending data ...")
+//                peripheral.writeValue("Sending hello BTChat !!!!".data(using: .utf8)!, for: characteristic, type: .withResponse)
+                self.logStatus(status: "Sending data (LONG) ...")
+                var str = txtMsg.stringValue
+                self.dataToSend =  NSData(data: str.data(using: .utf8)!)
+                self.sendingBytes()
+//                break
             }
         }
     }

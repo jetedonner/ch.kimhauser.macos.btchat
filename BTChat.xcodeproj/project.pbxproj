@@ -18,6 +18,9 @@
 		557D332E26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */; };
 		557D333026E0B18F001BBE8B /* AdvancedPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */; };
 		557D333226E0B207001BBE8B /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */; };
+		55B4F8CA26E0B89E004F6C77 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C826E0B89E004F6C77 /* settings.png */; };
+		55B4F8CB26E0B89E004F6C77 /* gear.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C926E0B89E004F6C77 /* gear.svg */; };
+		55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8CC26E0BD66004F6C77 /* antenna.svg */; };
 		55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D65AB826DD452100F6AF46 /* BTHelper.swift */; };
 		55D65ABC26DD506600F6AF46 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
 		691AE7721FE24EC6006CE4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691AE7711FE24EC6006CE4DB /* AppDelegate.swift */; };
@@ -37,6 +40,9 @@
 		557D332D26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewControllerOLD.xib; sourceTree = "<group>"; };
 		557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedPreferenceViewController.xib; sourceTree = "<group>"; };
 		557D333126E0B207001BBE8B /* GeneralPreferenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
+		55B4F8C826E0B89E004F6C77 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		55B4F8C926E0B89E004F6C77 /* gear.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gear.svg; sourceTree = "<group>"; };
+		55B4F8CC26E0BD66004F6C77 /* antenna.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = antenna.svg; sourceTree = "<group>"; };
 		55D65AB826DD452100F6AF46 /* BTHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTHelper.swift; sourceTree = "<group>"; };
 		55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		691AE76E1FE24EC5006CE4DB /* BTChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,9 @@
 		691AE7701FE24EC5006CE4DB /* BTChat */ = {
 			isa = PBXGroup;
 			children = (
+				55B4F8CC26E0BD66004F6C77 /* antenna.svg */,
+				55B4F8C926E0B89E004F6C77 /* gear.svg */,
+				55B4F8C826E0B89E004F6C77 /* settings.png */,
 				557D332F26E0B18F001BBE8B /* AdvancedPreferenceViewController.xib */,
 				691AE7711FE24EC6006CE4DB /* AppDelegate.swift */,
 				691AE7751FE24EC6006CE4DB /* Assets.xcassets */,
@@ -178,9 +187,12 @@
 				557D32ED26DD6440001BBE8B /* TESET.storyboard in Resources */,
 				691AE7761FE24EC6006CE4DB /* Assets.xcassets in Resources */,
 				557D333026E0B18F001BBE8B /* AdvancedPreferenceViewController.xib in Resources */,
+				55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */,
 				557D332726DE951A001BBE8B /* README.md in Resources */,
 				557D332626DE951A001BBE8B /* LICENSE in Resources */,
 				557D332E26E0B13F001BBE8B /* GeneralPreferenceViewControllerOLD.xib in Resources */,
+				55B4F8CA26E0B89E004F6C77 /* settings.png in Resources */,
+				55B4F8CB26E0B89E004F6C77 /* gear.svg in Resources */,
 				691AE7791FE24EC6006CE4DB /* Main.storyboard in Resources */,
 				557D333226E0B207001BBE8B /* GeneralPreferenceViewController.xib in Resources */,
 			);
@@ -337,7 +349,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.btchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -358,7 +370,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.kimhauser.macos.btchat;
 				PRODUCT_NAME = "$(TARGET_NAME)";

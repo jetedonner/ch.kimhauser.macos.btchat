@@ -18,7 +18,14 @@ extension Preferences.PaneIdentifier {
 final class GeneralPreferenceViewController: NSViewController, PreferencePane {
     let preferencePaneIdentifier = Preferences.PaneIdentifier.general
     let preferencePaneTitle = "General"
-    let toolbarItemIcon = NSImage(named: .Image)// NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General preferences")!
+    
+//    #if compiler(>=5.3)
+//    if @available(macOS 11.0, *) {
+    let toolbarItemIcon = NSImage(systemSymbolName: "gear", accessibilityDescription: "General preferences")!// NSImage(named: .Image)//
+//    }else{
+//    let toolbarItemIcon = NSImage(named: .Image)// NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General preferences")!
+//    }
+//    #endif
 
     override var nibName: NSNib.Name? { NSNib.Name(rawValue: "GeneralPreferenceViewController") }
 
@@ -33,7 +40,7 @@ final class GeneralPreferenceViewController: NSViewController, PreferencePane {
 final class AdvancedPreferenceViewController: NSViewController, PreferencePane {
     let preferencePaneIdentifier = Preferences.PaneIdentifier.advanced
     let preferencePaneTitle = "Advanced"
-    let toolbarItemIcon = NSImage(named: .Image)// NSImage(systemSymbolName: "gearshape.2", accessibilityDescription: "Advanced preferences")!
+    let toolbarItemIcon = NSImage(systemSymbolName: "gear", accessibilityDescription: "Advanced preferences")!
 
     override var nibName: NSNib.Name? { NSNib.Name(rawValue: "AdvancedPreferenceViewController") }
 

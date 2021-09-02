@@ -13,6 +13,7 @@ import CoreBluetooth
 enum Constants: String {
     case SERVICE_UUID = "40689029-B356-463E-9F48-BAB068903EF5"
     case CHAR_UUID = "40689029-B356-463E-9F48-BAB068903123"
+    case CHAR_LONG_UUID = "12689034-B356-463E-9F48-BAB068903123"
 }
 
 extension ViewController {
@@ -69,7 +70,7 @@ extension ViewController {
     }
     
     @IBAction func sendBTChatMsg(_ sender: Any){
-        var maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
         print("Maximum writeValue len: \(maxLen)")
         self.daPeripheral!.writeValue(txtMsg.stringValue.data(using: .utf8)!, for: self.daChar!, type: .withResponse)
         self.logStatus(status: "Sending data ...")
@@ -81,7 +82,9 @@ extension ViewController {
     
     
     func sendingBytes() {
-        var maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        let maxLen:Int = (self.daPeripheral?.maximumWriteValueLength(for: .withResponse))!
+        print("Maximum writeValue len: \(maxLen)")
+//        self.dataToSend = NSData(data: txtMsg.stringValue.data(using: .utf8)!)
         while dataToSend.length > sendDataIndex {
             var amountToSend = dataToSend.length - sendDataIndex
             
@@ -91,18 +94,18 @@ extension ViewController {
 
             let chunk = Data(bytes: UnsafeRawPointer(dataToSend.bytes + sendDataIndex), count: amountToSend)
             //adding to the header with chunk
-            var strData = String(format: "%dHello %@", CountValue, chunk as CVarArg)
+            let strData = String(format: "%dHello %@", CountValue, chunk as CVarArg)
 
-            var ChunkHeaderAddded = strData.data(using: .utf8)
+            let ChunkHeaderAddded = strData.data(using: .utf8)
 
-            print("\(ChunkHeaderAddded)")
+            print("\(String(describing: ChunkHeaderAddded))")
             CountValue = Int(CountValue) + 1
 //            let boolValue = connectingPeripheral.canSendWriteWithoutResponse
 //            if !boolValue {
 //                EmptyReceiveImagedata.insert(ChunkHeaderAddded, at: 0)
 //                //      return;
 //            }
-            self.daPeripheral!.writeValue(ChunkHeaderAddded!, for: self.daChar!, type: .withoutResponse)
+            self.daPeripheral!.writeValue(ChunkHeaderAddded!, for: self.daChar!, type: .withResponse)
             sendDataIndex += amountToSend
         }
 //        if completionFlag == false {
@@ -118,12 +121,12 @@ extension ViewController {
 //                sendDataIndex = sendDataIndex + 1
 //            }
 //        }
-        let count: Float = Float((10 * sendDataIndex) / dataToSend.length)
+//        let count: Float = Float((10 * sendDataIndex) / dataToSend.length)
 //        completion = count / 10
 //        BleDelegate.progressBarCallback(completion)
-        let Eom = "Completed".data(using: .utf8)
-        if let Eom = Eom {
-            self.daPeripheral!.writeValue(Eom, for: self.daChar!, type: .withoutResponse)
+        
+        if let EOM_MSG = EOM_MSG {
+            self.daPeripheral!.writeValue(EOM_MSG, for: self.daChar!, type: .withResponse)
         }
 //        BleDelegate.connnectingStatus(false)
 //        BleDelegate.didCompleteStatus()
