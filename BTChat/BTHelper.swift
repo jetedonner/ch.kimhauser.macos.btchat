@@ -92,10 +92,13 @@ extension ViewController {
 //            }
             self.daPeripheral!.writeValue(ChunkHeaderAddded, for: self.daCharLong!, type: .withResponse)
             sendDataIndex += amountToSend
-            let count: Float = Float((10 * sendDataIndex) / dataToSend.count)
-            completion = count / 10
-            self.spnSending.doubleValue = Double(100.0 * completion)
-            self.spnSending.updateLayer()
+//            let count: Float = Float((10 * sendDataIndex) / dataToSend.count)
+            completion = 100.0 / Float((dataToSend.count / sendDataIndex)) // count / 10
+            DispatchQueue.main.async {
+                self.spnSending.doubleValue = Double(self.completion)
+                self.spnSending.updateLayer()
+            }
+            
         }
 //        if completionFlag == false {
 //            sendDataIndex = 0

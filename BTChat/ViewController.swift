@@ -12,16 +12,33 @@ import Preferences
 import LaunchAtLogin
 import SQLite3
 
+//
+//extension NSTextField {
+//
+//    var contentSize: CGSize {
+//        get {
+////            guard let layoutManager = layoutManager, let textContainer = textContainer else {
+////                print("textView no layoutManager or textContainer")
+////                return .zero
+////            }
+////
+////            layoutManager.ensureLayout(for: textContainer)
+////            return layoutManager.usedRect(for: textContainer).size
+//        }
+//    }
+//}
+
 class ViewController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet var txtLog:NSTextField!
     @IBOutlet var txtChat:NSTextView!
-    @IBOutlet var txtMsg:NSTextField!
+    @IBOutlet var txtMsg:AutoGrowingTextField!
     @IBOutlet var lblStatus:NSTextField!
     @IBOutlet var cmdSend:NSButton!
     @IBOutlet var spnScnanning:NSProgressIndicator!
     @IBOutlet var spnSending:NSProgressIndicator!
     @IBOutlet var cmbNearby:NSPopUpButton!
+    @IBOutlet var daView:NSView!
     
     @IBOutlet weak var window: NSWindow!
     public var centralManager: CBCentralManager!

@@ -27,6 +27,7 @@
 		5593B57C26E117CF007768FD /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55D65ABB26DD506600F6AF46 /* CoreBluetooth.framework */; };
 		5593B58626E11CAE007768FD /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B58426E11C4B007768FD /* CryptoSwift.framework */; };
 		5593B58726E11CAE007768FD /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5593B58426E11C4B007768FD /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5593B58A26E14823007768FD /* AutoGrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5593B58926E14823007768FD /* AutoGrowingTextField.swift */; };
 		55B4F8CA26E0B89E004F6C77 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C826E0B89E004F6C77 /* settings.png */; };
 		55B4F8CB26E0B89E004F6C77 /* gear.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8C926E0B89E004F6C77 /* gear.svg */; };
 		55B4F8CD26E0BD66004F6C77 /* antenna.svg in Resources */ = {isa = PBXBuildFile; fileRef = 55B4F8CC26E0BD66004F6C77 /* antenna.svg */; };
@@ -71,6 +72,7 @@
 		5593B56F26E10FF9007768FD /* BTChatDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTChatDefaults.swift; sourceTree = "<group>"; };
 		5593B57426E11224007768FD /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
 		5593B58426E11C4B007768FD /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		5593B58926E14823007768FD /* AutoGrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoGrowingTextField.swift; sourceTree = "<group>"; };
 		55B4F8C826E0B89E004F6C77 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		55B4F8C926E0B89E004F6C77 /* gear.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = gear.svg; sourceTree = "<group>"; };
 		55B4F8CC26E0BD66004F6C77 /* antenna.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = antenna.svg; sourceTree = "<group>"; };
@@ -129,6 +131,14 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		5593B58826E14811007768FD /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				5593B58926E14823007768FD /* AutoGrowingTextField.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
 		55B4F8CE26E0E276004F6C77 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +184,7 @@
 		691AE7701FE24EC5006CE4DB /* BTChat */ = {
 			isa = PBXGroup;
 			children = (
+				5593B58826E14811007768FD /* Lib */,
 				5593B57326E11217007768FD /* Crypto */,
 				5571C13526E0ED4C008FBE0E /* SQLite */,
 				55B4F8CE26E0E276004F6C77 /* Preferences */,
@@ -307,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5593B58A26E14823007768FD /* AutoGrowingTextField.swift in Sources */,
 				55D65AB926DD452100F6AF46 /* BTHelper.swift in Sources */,
 				5593B57026E10FF9007768FD /* BTChatDefaults.swift in Sources */,
 				691AE7741FE24EC6006CE4DB /* ViewController.swift in Sources */,
