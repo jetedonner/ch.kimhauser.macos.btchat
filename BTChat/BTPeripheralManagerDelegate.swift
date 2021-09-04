@@ -109,6 +109,13 @@ extension ViewController: CBPeripheralManagerDelegate{
                 }
             }else{
                 self.printNewMsg2Chat(msg: str)
+                if(Defaults[.playSoundIncoming]){
+                    __NSBeep()
+                }
+                if(Defaults[.openBTIncoming]){
+                    let appDelegate = NSApp.delegate as! AppDelegate
+                    appDelegate.startPopover(nil)
+                }
             }
             peripheral.respond(to: requests[0], withResult: .success)
         }
