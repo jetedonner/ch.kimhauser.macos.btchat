@@ -69,6 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         (popover.contentViewController as! ViewController).txtMsg.resetOrigSize()
+        (popover.contentViewController as! ViewController).txtMsg.becomeFirstResponder()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
