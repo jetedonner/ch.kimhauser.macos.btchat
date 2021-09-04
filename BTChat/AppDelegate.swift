@@ -68,6 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 strongSelf.closePopover(event)
             }
         }
+        (popover.contentViewController as! ViewController).txtMsg.resetOrigSize()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

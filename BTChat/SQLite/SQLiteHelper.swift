@@ -17,7 +17,7 @@ class SQLiteHelper {
     init(){
         self.db = self.openDatabase()
 //        self.createTable()
-        self.insert()
+//        self.insert()
     }
 
     func openDatabase() -> OpaquePointer? {
@@ -58,8 +58,8 @@ class SQLiteHelper {
     let insertStatementString = "INSERT INTO Contact (Id, Name) VALUES (?, ?);"
     func insert() {
       var insertStatement: OpaquePointer?
-      // 1
-      if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+        // 1
+        if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
         let id: Int32 = 3
         let name: NSString = "DaVe"
         // 2
@@ -73,6 +73,40 @@ class SQLiteHelper {
           print("\nCould not insert row.")
         }
       } else {
+        print("\nINSERT statement could not be prepared.")
+      }
+      // 5
+      sqlite3_finalize(insertStatement)
+    }
+    
+    func insert(name:String, uuid:String, mac:String) {
+        let insertStatementString = "INSERT INTO Contacts (Contact, Uuid, MacAddress) VALUES (?, ?, ?) WHERE NOT EXISTS (SELECT * FROM Contacts WHERE Contact = ? AND Uuid = ? AND MacAddress = ?);"
+        var insertStatement: OpaquePointer?
+        
+        print(insertStatementString)
+        // 1
+        if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+            sqlite3_bind_text(insertStatement, 1, NSString(string: name).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 2, NSString(string: uuid).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 3, NSString(string: mac).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 4, NSString(string: name).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 5, NSString(string: uuid).utf8String, -1, nil)
+            sqlite3_bind_text(insertStatement, 6, NSString(string: mac).utf8String, -1, nil)
+                
+            print(insertStatement)
+            print(insertStatementString)
+            // 4
+            if sqlite3_step(insertStatement) == SQLITE_DONE {
+              print("\nSuccessfully inserted row.")
+            } else {
+              print("\nCould not insert row.")
+                print(String(cString: sqlite3_errmsg(db)))
+                print("ERROR: %s: %s\n", sqlite3_errstr(sqlite3_extended_errcode(db)), sqlite3_errmsg(db));
+            }
+      } else {
+          print("ERROR: %s: %s\n", sqlite3_errstr(sqlite3_extended_errcode(db)), sqlite3_errmsg(db));
+//          print("ERROR: \(sqlite3_errmsg(db))")
+//          sqlite3_errstr(sqlite3_errmsg(insertStatement))
         print("\nINSERT statement could not be prepared.")
       }
       // 5

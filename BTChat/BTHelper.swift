@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 import CoreBluetooth
+import CryptoSwift
 
 enum Constants: String {
     case SERVICE_UUID = "40689029-B356-463E-9F48-BAB068903EF5"
@@ -33,6 +34,9 @@ extension ViewController {
     func logMsg(msg:String){
         txtChat.string.append(msg + "\n")
         txtChat.scrollRangeToVisible(NSMakeRange(txtChat.string.count, 0))
+        txtChat.isEditable = true
+        txtChat.checkTextInDocument(nil)
+        txtChat.isEditable = false
     }
 
     
@@ -75,6 +79,18 @@ extension ViewController {
         sendDataIndex = 0
         completion = 0
         print("Maximum writeValue len: \(maxLen)")
+        
+        // Calculate Message Authentication Code (MAC) for message
+//        let key: Array<UInt8> = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+//
+//        do{
+//            print("Poly1305: \(try Poly1305(key: key).authenticate(dataToSend.bytes))")
+//            print("HMAC: \(try HMAC(key: key, variant: .sha256).authenticate(dataToSend.bytes))")
+//            print("CMAC: \(try CMAC(key: key).authenticate(dataToSend.bytes))")
+//        }catch{
+//
+//        }
+        
         while dataToSend.count > sendDataIndex {
             var amountToSend = dataToSend.count - sendDataIndex
             

@@ -11,6 +11,7 @@ import CoreBluetooth
 import Preferences
 import LaunchAtLogin
 import SQLite3
+import Defaults
 
 //
 //extension NSTextField {
@@ -63,6 +64,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     var sqlLiteHelper:SQLiteHelper?
     
+    
+    @IBAction func viewShow(_ sender:Any?){
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,12 +80,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.txtMsg.delegate = self
         
         
-        print(LaunchAtLogin.isEnabled)
-        //=> false
-
-        LaunchAtLogin.isEnabled = false
-
-        print(LaunchAtLogin.isEnabled)
+//        print(LaunchAtLogin.isEnabled)
+//        //=> false
+//
+//        LaunchAtLogin.isEnabled = false
+//
+//        print(LaunchAtLogin.isEnabled)
         
         self.sqlLiteHelper = SQLiteHelper()
         // Do any additional setup after loading the view.
@@ -104,8 +110,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         style: .toolbarItems
     )
 
-//    func applicationDidFinishLaunching(_ notification: Notification) {}
-
     @IBAction
     func preferencesMenuItemActionHandler(_ sender: NSMenuItem) {
         preferencesWindowController.show()
@@ -126,6 +130,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         }
         self.sendingBytes()
         txtMsg.stringValue = ""
+        txtMsg.resetOrigSize()
     }
     
     @IBAction func doScanForBTChatNearby(_ sender: Any){

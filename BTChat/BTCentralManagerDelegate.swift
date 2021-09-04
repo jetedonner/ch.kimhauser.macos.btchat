@@ -9,6 +9,7 @@
 import Foundation
 import Cocoa
 import CoreBluetooth
+import Defaults
 
 extension ViewController: CBCentralManagerDelegate{
     
@@ -24,12 +25,19 @@ extension ViewController: CBCentralManagerDelegate{
     
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
         print("Connected peripheral: " + peripheral.name!)
+        self.sqlLiteHelper?.insert(name: peripheral.name!, uuid: peripheral.identifier.uuidString, mac: peripheral.identifier.uuidString)
         peripheral.discoverServices([CBUUID(string: Constants.SERVICE_UUID.rawValue)])
 
     }
     
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("Disconnected peripheral: " + peripheral.name!)
+        
+        self.allDiscPeripherals = self.allDiscPeripherals.filter { $0.identifier != peripheral.identifier }
+        
+//        if(self.allDiscPeripherals.contains(peripheral)){
+//            self.allDiscPeripherals.removeAll(where: peripheral)
+//        }
         if let error = error{
             print("ERROR: \(error)")
         }
@@ -40,7 +48,9 @@ extension ViewController: CBCentralManagerDelegate{
     }
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
-
+        if(central.state == .poweredOn && Defaults[.autoStartScan]){
+            self.tryScanForBTChat(central.state)
+        }
     }
 }
 

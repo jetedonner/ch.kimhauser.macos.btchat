@@ -17,9 +17,28 @@ class AutoGrowingTextField: NSTextField {
 
     private var lastSize: NSSize?
     private var isEditing = false
+    
+    private var origSize:NSSize!
+    private var origPos:NSPoint!
+    private var growDiff:CGFloat = 0.0
+
+    public func resetOrigSize(){
+        self.setFrameSize(self.origSize)
+        var newPos:NSPoint = self.origPos
+        newPos.y += self.growDiff
+        self.setFrameOrigin(newPos)
+        var szV:NSSize = (self.window?.contentView!.frame.size)!
+        szV.height -= self.growDiff
+        self.window?.contentView!.setFrameSize(szV)
+        self.window?.setContentSize(szV)
+        self.growDiff = 0.0
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.origSize = self.frame.size
+        self.origPos = self.frame.origin
 
         if let placeholderString = self.placeholderString {
             self.placeholderWidth = sizeForProgrammaticText(placeholderString).width
@@ -70,6 +89,7 @@ class AutoGrowingTextField: NSTextField {
         if(sz.height >= 150){ return }
         sz.width = self.frame.width
         let diff = sz.height - self.frame.height
+        self.growDiff += diff
         var orig = self.frame.origin
         orig.y -= diff
         self.setFrameOrigin(orig)

@@ -9,6 +9,8 @@
 import Foundation
 import Cocoa
 import Preferences
+import Defaults
+import LaunchAtLogin
 
 extension Preferences.PaneIdentifier {
     static let general = Self("general")
@@ -20,19 +22,27 @@ final class GeneralPreferenceViewController: NSViewController, PreferencePane {
     let preferencePaneIdentifier = Preferences.PaneIdentifier.general
     let preferencePaneTitle = "General"
     
-//    #if compiler(>=5.3)
-//    if @available(macOS 11.0, *) {
     let toolbarItemIcon = NSImage(systemSymbolName: "gear", accessibilityDescription: "General preferences")!// NSImage(named: .Image)//
-//    }else{
-//    let toolbarItemIcon = NSImage(named: .Image)// NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General preferences")!
-//    }
-//    #endif
-
+    
     override var nibName: NSNib.Name? { NSNib.Name(rawValue: "GeneralPreferenceViewController") }
-
+    
+    @IBOutlet var chkLaunchAtStartup:NSButton!
+    @IBAction func setLaunchAtStartup(_ sender:Any?){
+        LaunchAtLogin.isEnabled = (self.chkLaunchAtStartup.state == .on)
+    }
+    
+    override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        self.chkLaunchAtStartup.state = (Defaults[.launchAtStartup] ? .on : .off)
         // Setup stuff here
     }
 }

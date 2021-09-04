@@ -9,6 +9,8 @@
 import Foundation
 import Cocoa
 import CoreBluetooth
+import AppKit
+import Defaults
 
 extension ViewController: CBPeripheralManagerDelegate{
 
@@ -85,14 +87,21 @@ extension ViewController: CBPeripheralManagerDelegate{
             if(requests[0].characteristic.uuid == self.daCharLong?.uuid){
                 if(str == EOM_MSG){
                     
-                    do{
+//                    do{
                         let tmpStr:String = CryptoHelper.decrypt(self.dataReceived.bytes)
 //                        self.dataReceived = try CryptoHelper.aesDecrypt(encryptedData: self.dataReceived)
 //                        let str:String = String(decoding: self.dataReceived, as: UTF8.self)
                         self.printNewMsg2Chat(msg: tmpStr)
-                    }catch {
-                        print("ERROR: Decryption failed!")
-                    }
+                        if(Defaults[.playSoundIncoming]){
+                            __NSBeep()
+                        }
+                        if(Defaults[.openBTIncoming]){
+                            let appDelegate = NSApp.delegate as! AppDelegate
+                            appDelegate.startPopover(nil)
+                        }
+//                    }catch {
+//                        print("ERROR: Decryption failed!")
+//                    }
                     
                     self.dataReceived.removeAll()
                 }else{
@@ -106,10 +115,14 @@ extension ViewController: CBPeripheralManagerDelegate{
     }
     
     func printNewMsg2Chat(msg:String){
-        let today = Date()
-        let formatter3 = DateFormatter()
-        formatter3.dateFormat = "HH:mm:ss"
-        self.logMsg(msg: "\(formatter3.string(from: today)): \(msg)")
+        var prefix:String = ""
+        if(Defaults[.addTime2Chat]){
+            let today = Date()
+            let formatter3 = DateFormatter()
+            formatter3.dateFormat = "HH:mm:ss"
+            prefix = formatter3.string(from: today) + ": "
+        }
+        self.logMsg(msg: "\(prefix)\(msg)")
     }
 }
 
