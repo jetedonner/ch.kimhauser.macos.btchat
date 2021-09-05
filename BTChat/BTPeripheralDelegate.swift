@@ -26,7 +26,7 @@ extension ViewController: CBPeripheralDelegate{
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService,
                     error: Error?) {
         
-        self.cmbNearby.menu?.items.removeAll()
+        
         self.cmbNearby.menu?.items.append(NSMenuItem(title: peripheral.name!, action: nil, keyEquivalent: "D"))
         
         guard let characteristics = service.characteristics else { return }

@@ -64,6 +64,7 @@ extension ViewController {
     }
     
     func scanForBTChatNearby() {
+        self.cmbNearby.menu?.items.removeAll()
         self.logStatus(status: "Scanning for contacts ...")
         self.spnScnanning.startAnimation(nil)
         self.centralManager.scanForPeripherals(withServices: [CBUUID(string: Constants.SERVICE_UUID.rawValue)], options: nil)// [CBCentralManagerScanOptionAllowDuplicatesKey: true])

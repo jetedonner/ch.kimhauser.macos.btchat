@@ -59,7 +59,7 @@ class AutoGrowingTextField: NSTextField {
         }
     }
 
-    private func sizeForProgrammaticText(_ string: String) -> NSSize {
+    public func sizeForProgrammaticText(_ string: String) -> NSSize {
         let font = self.font ?? NSFont.systemFont(ofSize: NSFont.systemFontSize, weight: .regular)
         let stringWidth = NSAttributedString(
             string: string,
@@ -85,26 +85,35 @@ class AutoGrowingTextField: NSTextField {
     override func textDidChange(_ notification: Notification) {
         super.textDidChange(notification)
         self.invalidateIntrinsicContentSize()
+        self.growTextFieldIfNeeded()
+    }
+    
+    public func growTextFieldIfNeeded(alt:Bool = false){
         var sz:NSSize = self.sizeForProgrammaticText(self.stringValue)
-        if(sz.height >= 150){ return }
+        if(sz.height >= 150 && !alt){ return }
         sz.width = self.frame.width
         let diff = sz.height - self.frame.height
-        self.growDiff += diff
+        
         var orig = self.frame.origin
         orig.y -= diff
-        self.setFrameOrigin(orig)
-        self.setFrameSize(sz)
+        if(sz.height < 150 && !alt){
+            self.growDiff += diff
+            self.setFrameOrigin(orig)
+            self.setFrameSize(sz)
+        }
+        
         self.superview?.needsLayout = true
         self.superview?.layoutSubtreeIfNeeded()
         var szV:NSSize = (self.window?.contentView as! NSView).frame.size
-        szV.height += diff
+        if(alt){
+            szV.height += self.growDiff
+        }else{
+            szV.height += diff
+        }
         (self.window?.contentView as! NSView).setFrameSize(szV)
         self.window?.setContentSize(szV)
     }
 
-//    override var intrinsicContentSize: NSSize{
-//        return NSSize(width: 200, height: 100)
-//    }
     override var intrinsicContentSize: NSSize {
         var minSize: NSSize {
             var size = super.intrinsicContentSize

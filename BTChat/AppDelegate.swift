@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 strongSelf.closePopover(event)
             }
         }
-        (popover.contentViewController as! ViewController).txtMsg.resetOrigSize()
+        (popover.contentViewController as! ViewController).txtMsg.growTextFieldIfNeeded(alt: true)
         (popover.contentViewController as! ViewController).txtMsg.becomeFirstResponder()
     }
     

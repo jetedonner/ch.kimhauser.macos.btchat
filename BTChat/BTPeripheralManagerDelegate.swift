@@ -108,13 +108,16 @@ extension ViewController: CBPeripheralManagerDelegate{
                     self.dataReceived.append(requests[0].value!)
                 }
             }else{
-                self.printNewMsg2Chat(msg: str)
-                if(Defaults[.playSoundIncoming]){
-                    __NSBeep()
-                }
-                if(Defaults[.openBTIncoming]){
-                    let appDelegate = NSApp.delegate as! AppDelegate
-                    appDelegate.startPopover(nil)
+                if(str != EOM_MSG){
+//                    let tmpStr:String = CryptoHelper.decrypt(requests[0].value!.bytes)
+                    self.printNewMsg2Chat(msg: str)
+                    if(Defaults[.playSoundIncoming]){
+                        __NSBeep()
+                    }
+                    if(Defaults[.openBTIncoming]){
+                        let appDelegate = NSApp.delegate as! AppDelegate
+                        appDelegate.startPopover(nil)
+                    }
                 }
             }
             peripheral.respond(to: requests[0], withResult: .success)
