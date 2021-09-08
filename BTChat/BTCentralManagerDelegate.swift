@@ -15,9 +15,10 @@ extension ViewController: CBCentralManagerDelegate{
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
         let discoveredPeripheral = peripheral
-        if((self.allDiscPeripherals[discoveredPeripheral.name!] == nil)){
+        
+        if((self.allDiscPeripherals[discoveredPeripheral.identifier.uuidString] == nil)){
             print("peri: \(discoveredPeripheral)")
-            self.allDiscPeripherals[discoveredPeripheral.name!] = discoveredPeripheral
+            self.allDiscPeripherals[discoveredPeripheral.identifier.uuidString] = discoveredPeripheral
             discoveredPeripheral.delegate = self
             self.centralManager.connect(discoveredPeripheral, options: nil)
         }
@@ -27,9 +28,9 @@ extension ViewController: CBCentralManagerDelegate{
         print("Connected peripheral: " + peripheral.name!)
         self.sqlLiteHelper?.insert(name: peripheral.name!, uuid: peripheral.identifier.uuidString, mac: peripheral.identifier.uuidString)
         
-        if((self.allDiscPeripherals[peripheral.name!] == nil)){
+        if((self.allDiscPeripherals[peripheral.identifier.uuidString] == nil)){
             print("peri: \(peripheral)")
-            self.allDiscPeripherals[peripheral.name!] = peripheral
+            self.allDiscPeripherals[peripheral.identifier.uuidString] = peripheral
             peripheral.delegate = self
 //            self.centralManager.connect(discoveredPeripheral, options: nil)
             peripheral.discoverServices([CBUUID(string: Constants.SERVICE_UUID.rawValue)])
