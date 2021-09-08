@@ -48,14 +48,14 @@ extension ViewController: CBPeripheralManagerDelegate{
         let serviceUUID = CBUUID(string: Constants.SERVICE_UUID.rawValue)
         let service = CBMutableService(type: serviceUUID, primary: true)
         
-        let characteristicUUID = CBUUID(string: Constants.CHAR_UUID.rawValue)
+//        let characteristicUUID = CBUUID(string: Constants.CHAR_UUID.rawValue)
         let properties: CBCharacteristicProperties = [.notify, .read, .write, .writeWithoutResponse]
         let permissions: CBAttributePermissions = [.readable, .writeable]
-        let characteristic = CBMutableCharacteristic(
-            type: characteristicUUID,
-            properties: properties,
-            value: nil,
-            permissions: permissions)
+//        let characteristic = CBMutableCharacteristic(
+//            type: characteristicUUID,
+//            properties: properties,
+//            value: nil,
+//            permissions: permissions)
         
         let characteristicLongUUID = CBUUID(string: Constants.CHAR_LONG_UUID.rawValue)
         let characteristicLong = CBMutableCharacteristic(
@@ -64,7 +64,9 @@ extension ViewController: CBPeripheralManagerDelegate{
             value: nil,
             permissions: permissions)
         
-        service.characteristics = [characteristic, characteristicLong]
+        service.characteristics = [characteristicLong]
+        
+//        service.characteristics = [characteristic, characteristicLong]
         peripheralManager.add(service)
     }
     
@@ -86,7 +88,6 @@ extension ViewController: CBPeripheralManagerDelegate{
             let str:String = String(decoding: requests[0].value!, as: UTF8.self)
             if(requests[0].characteristic.uuid == self.daCharLong?.uuid){
                 if(str == EOM_MSG){
-                    
 //                    do{
                         let tmpStr:String = CryptoHelper.decrypt(self.dataReceived.bytes)
 //                        self.dataReceived = try CryptoHelper.aesDecrypt(encryptedData: self.dataReceived)

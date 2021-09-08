@@ -46,7 +46,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     public var peripheralManager:CBPeripheralManager!
     public var name: String?
     
-    public var allDiscPeripherals:[CBPeripheral] = []
+    lazy var allDiscPeripherals:[String:CBPeripheral] = [:]
     var daPeripheral:CBPeripheral?
     var daChar:CBCharacteristic?
     var daCharLong:CBCharacteristic?

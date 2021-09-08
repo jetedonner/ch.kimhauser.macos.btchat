@@ -92,6 +92,11 @@ extension ViewController {
 //
 //        }
         
+        
+//        let dataToSendLen = String(dataToSend.count)
+//        let chunk = Data(bytes: UnsafeRawPointer(NSData(data: dataToSendLen.data(using: .utf8)!).bytes), count: dataToSendLen.count)
+//        daPeripheral.writeValue(chunk, for: self.daCharLong!, type: .withResponse)
+        
         while dataToSend.count > sendDataIndex {
             var amountToSend = dataToSend.count - sendDataIndex
             
